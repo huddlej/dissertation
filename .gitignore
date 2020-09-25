@@ -5,3 +5,11 @@ tmp/
 
 *.aux
 .auctex-auto
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.lof
+*.out
+*.toc
