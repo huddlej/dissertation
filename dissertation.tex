@@ -47,8 +47,24 @@
 %
 % The following line would print the thesis in a postscript font 
 
-% \usepackage{natbib}
-% \def\bibpreamble{\protect\addcontentsline{toc}{chapter}{Bibliography}}
+\usepackage{natbib}
+\def\bibpreamble{\protect\addcontentsline{toc}{chapter}{Bibliography}}
+
+% graphicx package, useful for including eps and pdf graphics
+\usepackage{graphicx}
+\graphicspath{{./figures/}}
+\DeclareGraphicsExtensions{.png,.png,.jpg}
+
+% basic packages
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
 
 \setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
 
@@ -64,5 +80,8 @@
 \include{chapter_03_visualizing_mutational_effects}
 \include{chapter_04_forecasting_influenza}
 \include{chapter_05_conclusions}
+
+\bibliographystyle{plain}
+\bibliography{thesis}
 
 \end{document}
