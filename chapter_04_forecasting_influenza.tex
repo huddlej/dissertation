@@ -42,14 +42,14 @@ We also find that composite models based on phenotypic measures of antigenic dri
   \begin{center}
   \includegraphics[width=\columnwidth]{chapter_04/Figure_1.pdf}
   \caption{
-    Schematic representation of the fitness model for simulated H3N2-like populations wherein the fitness of strains at timepoint $t$ determines the estimated frequency of strains with similar sequences one year in the future at timepoint $u$.
-    Strains are colored by their amino acid sequence composition such that genetically similar strains have similar colors (Methods).
+    Schematic representation of the fitness model for simulated H3N2-like populations.
+    The fitness of strains at timepoint $t$ determines the estimated frequency of strains with similar sequences one year in the future at timepoint $u$.
+    Genetically similar strains by amino acid sequence have similar colors (Methods).
     A) Strains at timepoint $t$, $\mathbf{x}(t)$, are shown in their phylogenetic context and sized by their frequency at that timepoint.
     The estimated future population at timepoint $u$, $\mathbf{\hat{x}}(u)$, is projected to the right with strains scaled in size by their projected frequency based on the known fitness of each simulated strain.
     B) The frequency trajectories of strains at timepoint $t$ to $u$ represent the predicted the growth of the dark blue strains to the detriment of the pink strains.
-    C) Strains at timepoint $u$, $\mathbf{x}(u)$, are shown in the corresponding phylogeny for that timepoint and scaled by their frequency at that time.
-    D) The observed frequency trajectories of strains at timepoint $u$ broadly recapitulate the model's forecasts while also revealing increased diversity of sequences at the future timepoint that the model could not anticipate, e.g. the emergence of the light blue cluster from within the successful dark blue cluster.
-    Model coefficients minimize the earth mover's distance between amino acid sequences in the observed, $\mathbf{x}(u)$,  and estimated, $\mathbf{\hat{x}}(u)$, future populations across all training windows.
+    C) Strains at timepoint $u$, $\mathbf{x}(u)$, are shown as in panel A.
+    D) The observed frequency trajectories of strains at timepoint $u$ broadly recapitulate the model's forecasts while also revealing increased diversity of sequences at the future timepoint that the model could not anticipate.
   }
   \label{fig:model}
   \end{center}
