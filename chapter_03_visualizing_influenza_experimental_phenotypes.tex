@@ -6,7 +6,7 @@
 
 The high-throughput technique of deep mutational scanning (DMS) \citep{fowler2014deep} has recently made it possible to experimentally measure the effects of all amino-acid mutations to a protein (Figure~\ref{fig:dms}).
 Over the past five years, this technique has been used to study dozens of different proteins \citep{esposito2019mavedb} and answer a variety of research questions.
-For example, DMS has been used for protein engineering \citep{wrenbeck2017deep}, understanding the human immune response to viruses \citep{lee2019mapping}, and interpreting human variation in a clinical setting \citep{starita2017variant,gelman2019recommendations}.
+For example, DMS has been used for protein engineering \citep{wrenbeck2017deep}, understanding the human immune response to viruses \citep{Lee2019}, and interpreting human variation in a clinical setting \citep{starita2017variant,gelman2019recommendations}.
 Accompanying this proliferation of DMS studies has been the development of software tools \citep{bloom2015software,rubin2017statistical} and databases \citep{esposito2019mavedb} for data analysis and sharing.
 However, for many purposes it is important to integrate and visualize the DMS data in the context of other information, such as the 3-D protein structure or natural sequence-variation data.
 Currently, this visualization requires the use of multiple different tools including custom scripts, static visualization tools like MaveVis \citep{esposito2019mavedb}, or protein structure software such as PyMol \citep{PyMOL}.
@@ -30,10 +30,10 @@ Please visit the documentation at https://dms-view.github.io/docs to learn more 
 
 \subsection{Case study: Mapping influenza A virus escape from human sera}
 
-Using a DMS approach, \citet{lee2019mapping} measured how all amino-acid mutations to the influenza virus surface-protein hemagglutinin (HA) affected viral neutralization by human sera.
-For more information on the experimental setup, see the paper \citep{lee2019mapping} or the GitHub repository (\url{https://github.com/jbloomlab/map_flu_serum_Perth2009_H3_HA}).
+Using a DMS approach, \citet{Lee2019} measured how all amino-acid mutations to the influenza virus surface-protein hemagglutinin (HA) affected viral neutralization by human sera.
+For more information on the experimental setup, see the paper \citep{Lee2019} or the GitHub repository (\url{https://github.com/jbloomlab/map_flu_serum_Perth2009_H3_HA}).
 
-We visualized the \citet{lee2019mapping} serum mapping data using \emph{dms-view}.
+We visualized the \citet{Lee2019} serum mapping data using \emph{dms-view}.
 To explore this dataset, please visit https://dms-view.github.io.
 In the \emph{dms-view} visualization of these data, the conditions are the different human sera used for the selections.
 The site- and mutation-level metrics are different \href{https://jbloomlab.github.io/dms_tools2/diffsel.html}{summary statistics} measuring the extent that mutations escape from immune pressure.
@@ -56,7 +56,7 @@ These data are the default data for \emph{dms-view}, so to explore this question
 
 To address where on the protein structure the targeted sites are located, we selected the most highly targeted sites (144, 159, 193, and 222) for the human sera condition "Age 21 2010" to highlight them on the protein structure.
 
-In Figure~\ref{fig:fig}A, we can see that these sites cluster on the "head" of HA, which is known to be a common target of the human immune system \citep{chambers2015identification}.
+In Figure~\ref{fig:fig}A, we can see that these sites cluster on the "head" of HA, which is known to be a common target of the human immune system \citep{Chambers:2015jt}.
 
 \subsection{Code Availability}
 
@@ -67,13 +67,13 @@ In Figure~\ref{fig:fig}A, we can see that these sites cluster on the "head" of H
 \begin{figure}[ht]
   \centering
   \includegraphics{chapter_03/dms.pdf}
-  \caption{Example deep mutational scanning workflow, modified from \citet{lee2019mapping}. The goal of this experiment is to quantify the how mutations affect a virus's ability to escape an antibody. The viral variant library contains all single amino-acid changes away from wildtype. The viral library is passaged in cell culture, with and without antibodies, to select for functional variants. Mutational effects are calculated based on deep sequencing of the pre-selected and post-selected libraries.\label{fig:dms}}
+  \caption{Example deep mutational scanning workflow, modified from \citet{Lee2019}. The goal of this experiment is to quantify the how mutations affect a virus's ability to escape an antibody. The viral variant library contains all single amino-acid changes away from wildtype. The viral library is passaged in cell culture, with and without antibodies, to select for functional variants. Mutational effects are calculated based on deep sequencing of the pre-selected and post-selected libraries.\label{fig:dms}}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics{chapter_03/fig.pdf}
-  \caption{Using \emph{dms-view} to analyze DMS data. For further exploration, please visit https://dms-view.github.io. **(A)** The \emph{dms-view} data section has three panels: the site plot, the mutation plot, and the protein structure plot. The interactive features for selecting sites and navigating are in the site plot panel. Here we show the five sites most highly targeted by human serum "2010-Age-21" from the study by \citet{lee2019mapping}. All five sites fall in the ``globular head" of influenza virus HA. **(B)** The same five sites as in panel **A** but now plotted with the data from a different human serum, "2009-age-53". Using \emph{dms-view} to compare, we see that different sites on HA are targeted by different sera. \label{fig:fig}}
+  \caption{Using \emph{dms-view} to analyze DMS data. For further exploration, please visit https://dms-view.github.io. **(A)** The \emph{dms-view} data section has three panels: the site plot, the mutation plot, and the protein structure plot. The interactive features for selecting sites and navigating are in the site plot panel. Here we show the five sites most highly targeted by human serum "2010-Age-21" from the study by \citet{Lee2019}. All five sites fall in the ``globular head" of influenza virus HA. **(B)** The same five sites as in panel **A** but now plotted with the data from a different human serum, "2009-age-53". Using \emph{dms-view} to compare, we see that different sites on HA are targeted by different sera. \label{fig:fig}}
 \end{figure}
 
 \section{Visualization of antigenic phenotypes}
