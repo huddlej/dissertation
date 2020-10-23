@@ -39,6 +39,19 @@ However, the utility of the experiments for understanding natural evolution depe
 
 \section{Results}
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{chapter_02/rescaled-avgprefs_prefs.pdf}
+\caption{\label{fig:logoplot}
+{\bf The site-specific amino-acid preferences of the Perth/2009 HA measured in our experiments.}
+The height of each letter is the preference for that amino acid, after taking the average over experimental replicates and re-scaling~\citep{hilton2017phydms} by the stringency parameter in Table~\ref{tab:phydms}.
+The sites are in H3 numbering.
+The top overlay bar indicates whether or not a site is in the set of epitope residues delineated in \citet{Wolf:2006da}.
+The bottom overlay bar indicates the HA domain (sig. pep. = signal peptide, HA1 ecto. = HA1 ectodomain, HA2 ecto. = HA2 ectodomain, TM = transmembrane domain, cyto. tail. = cytoplasmic tail).
+The letters directly above each logo stack indicate the wildtype amino acid at that site.
+}
+\end{figure}
+
 \subsection{Deep mutational scanning of HA from a recent strain of human H3N2 influenza virus}
 We performed a deep mutational scan to measure the effects of all amino-acid mutations to HA from the A/Perth/16/2009 (H3N2) strain on viral growth in cell culture.
 This strain was the H3N2 component of the influenza vaccine from 2010-2012~\citep{who2010d,who2011}.
@@ -200,6 +213,27 @@ The effect of mutating site $r$ from amino acid $a_1$ to $a_2$ was quantified as
 where $\pi_{r,a_1}$ and $\pi_{r,a_2}$ are the re-scaled preferences for amino acids $a_1$ or $a_2$ at site $r$ as shown in Figure~\ref{fig:logoplot}.
 The WSN/1933 H1 HA amino-acid preferences are the replicate-average values reported in \citep{Doud:2016gm}, re-scaled by a stringency parameter of 2.05 (see \url{https://github.com/jbloomlab/dms_tools2/blob/master/examples/Doud2016/analysis_notebook.ipynb}).
 
+\begin{table}
+\caption{\label{tab:phydms}
+  {\bf Substitution models informed by the experiments describe HA's evolution better than traditional models.}
+  Maximum likelihood phylogenetic fit to an alignment of human H3N2 HAs using ExpCM~\citep{hilton2017phydms}, ExpCM in which the experimental measurements are averaged across sites (site avg.), and M0 and M5 versions of the Goldman-Yang (GY94) model~\citep{yang2000codon}.
+  Models are compared by Akaike information criterion (AIC)~\citep{posada2004model} computed from the log likelihood (LnL) and number of model parameters.
+  The $\omega$ parameter is dN/dS for the Goldman-Yang models, and the relative dN/dS after accounting for the measurements for the ExpCM.
+  For the M5 model, we give the mean followed by the shape and rate parameters of the gamma distribution over $\omega$.
+}
+\begin{center}
+\begin{tabular}{cccccccc}
+\hline
+\bf{Model} & \bf{$\Delta$AIC} & \bf{LnL} & \bf{Stringency} & \bf{$\omega$}  \\ \hline
+ExpCM & 0.0 & -8441 & 2.47 & 0.91 \\
+GY94 M5 & 2094 & -9482 & -- & 0.36 (0.30, 0.84) \\
+ExpCM, site avg. & 2501 & -9692 & 0.67 & 0.32 \\
+GY94 M0 & 2536 & -9704 & -- & 0.31 \\
+\hline
+\end{tabular}
+ \end{center}
+\end{table}
+
 \subsection*{Inference of human H3N2 phylogenetic tree and calculation of maximum mutation frequencies}
 
 \begin{figure}
@@ -259,3 +293,49 @@ We also repeated the above analyses using only viruses that were sequenced direc
 Routine direct sequencing did not begin until the early 2000s \citep{McWhite:2016fe}.
 To construct a tree with a similar number of viruses as the original analysis, we sampled 30 viruses per month between January 1, 2000 and April 1, 2018, producing a tree with 2,374 unpassaged viruses with augur (commit: \texttt{6d9f708}).
 We included the passaged DMS strain, A/Perth/16/2009, in the resulting tree to enable comparison between pre-Perth and post-Perth clades.
+
+\subsection{Analysis of full-length sequence preferences}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chapter_02/sequence-preference-per-strain-by-time-and-trunk-status.png}
+  \caption{\label{fig:sequence-preference-per-strain} Sequence preference by time for sequences from 1968--2012.
+    Least squares regression lines are shown for trunk (red) and side branch (blue) nodes.
+    The trunk line corresponds to the equation $y = 1.54x - 3779.83$ with an adjusted R-squared value of 0.87 ($p << 0.01$).
+    The side branch line corresponds to the equation $y = 1.50x - 3700$ with an adjusted R-squared value of 0.88 ($p << 0.01$).
+    The differences between these two equations is effectively eliminated when the same analysis is performed without terminal nodes.}
+\end{figure}
+
+We attempted to quantify the fitness of each H3N2 strain's complete HA sequence by summing the mutational preferences defined in Equation~\ref{eq:muteffect} across all positions in HA.
+We anticipated that in the absence of epistasis the resulting sums would provide a metric of each strain's fitness with respect to its functional constraints.
+Importantly, the sequence preference metric should also provide a fitness estimate that could be applied to any sequence without any additional phylogenetic information (i.e., the amino acid mutations present on branches leading to the strain in a phylogeny).
+
+We calculated the sequence preference for all observed strains in the full phylogeny (Figure~\ref{suppfig:tree}) and their inferred ancestral sequences corresponding to internal nodes of the tree.
+We additionally annotated each node of the tree by its status as belonging to the ``trunk'' or ``side branch'' of the phylogeny, using a previously published definition for these categories \citep{Bedford2015fj}.
+Nodes that belonged to the trunk category represent sequences that seeded future H3N2 populations while nodes on side branches failed to propagate.
+We plotted the sequence preference of each node by its observed or inferred date and trunk status.
+
+Surprisingly, we observed a positive linear trend for all sequences collected before the Perth/2009 strain (Figure~\ref{fig:sequence-preference-per-strain}).
+This pattern reversed for all sequences collected after the Perth/2009 strain, showing a negative linear trend.
+To better visualize and interpret these results, we fit linear regression models to both trunk and side-branch nodes and plotted the residuals for each sequence from the resulting models.
+The residuals recapitulated the trends we observed in the sequence preferences by time and highlighted the greater divergence of trunk nodes from the positive linear trend after 2009 (Figure~\ref{fig:residuals-from-regression-fit-to-sequence-preference-per-strain}).
+The same patterns appeared when we fit local weighted regression (LOWESS) lines to the residuals (Figure~\ref{fig:lowess-residuals-from-regression-fit-to-sequence-preference-per-strain})
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chapter_02/residuals-from-regression-to-sequence-preference-by-time-and-trunk-status.png}
+  \caption{\label{fig:residuals-from-regression-fit-to-sequence-preference-per-strain} Residuals by time based on linear regression equations in Figure~\ref{fig:sequence-preference-per-strain}.
+    The null expectation for the residuals is a horizontal line for both trunk and side-branch nodes with a trunk line slightly above the side-branch line.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chapter_02/lowess-fit-to-residuals-from-regression-to-sequence-preference-by-time-and-trunk-status.png}
+  \caption{\label{fig:lowess-residuals-from-regression-fit-to-sequence-preference-per-strain} Local weighted regression (LOWESS) lines for trunk and side-branch residuals in Figure~\ref{fig:residuals-from-regression-fit-to-sequence-preference-per-strain}.}
+\end{figure}
+
+From these results, we concluded that the sequence preference metric was strongly influenced by the genetic background of the DMS preferences themselves (i.e., the Perth/2009 strain).
+We interpretted the positive linear trend toward the Perth/2009 era as a representation of H3 sequences that gradually accumulated mutations that made them appear more like the Perth/2009 strain.
+This interpretation was supported by the fact that the Perth/2009 strain had one of the highest possible sequence preferences and therefore represented a kind of ``fitness peak'' for the sequence preference metric.
+From the decline of sequence preferences after 2009 even for trunk nodes, we concluded that the sequence preference was not a reliable fitness metric for long-term forecasts of H3N2 evolution.
+We resolved to use mutation-specific DMS preferences for the remainder of our analyses, to minimize the effects of epistasis on our results.
