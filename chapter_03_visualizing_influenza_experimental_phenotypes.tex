@@ -2,7 +2,7 @@
 
 \section{dms-view: Interactive visualization tool for deep mutational scanning data}
 
-This work was originally published in \emph{The Journal of Open Source Software} at \url{https://doi.org/10.21105/joss.02353}.
+With the exception of subsection~\ref{subsec:visual-design-decisions}, this work was originally published in \emph{The Journal of Open Source Software} at \url{https://doi.org/10.21105/joss.02353}.
 
 \subsection{Summary and Purpose}
 
@@ -90,6 +90,39 @@ In Figure~\ref{fig:dms-view-layout}, we can see that these sites cluster on the 
 \emph{dms-view} is available at \url{https://dms-view.github.io}.
 Source code is available at \url{https://github.com/dms-view/dms-view.github.io}.
 Documentation is available at \url{https://dms-view.github.io/docs} and case studies are available at \url{https://dms-view.github.io/docs/casestudies/}.
+
+\subsection{Visual design decisions behind dms-view}
+\label{subsec:visual-design-decisions}
+
+With one notable exception, we designed \emph{dms-view} to use the most expressive and effective representations of the underlying data.
+Expressiveness describes the ability of a visualization to communicate the most relevant information in a dataset, while effectiveness describes how rapidly a viewer can perceive the relevant information \citep{Mackinlay1986}.
+Expressive and effective visualizations require the designer to select appropriate representations of the data based on the designer's understanding of human perception, available modes of representation, and the data being visualized.
+
+To these ends, we selected encodings of DMS data that were most appropriate for these data.
+In the ``site plot'', we represented quantitative values as circles on a discrete genomic coordinate scale of the x-axis and a continuous scale on the y-axis.
+We chose a redundant color encoding of the site metric values to both emphasize the differences between multiple selected values and to link selected sites in the ``site plot'' with their placement on the protein structure.
+We colored unselected points gray to communicate their position in the site plot and distinguish them from selected points with color.
+We used reduced opacity for unselected points, to reduce occlusion caused by overlapping circles and maintain a reasonable circle size for user interactions.
+We increased the expressiveness of site plot data by providing details on demand that users can access by hovering over specific points.
+We increased the effectiveness of site plot data by adding filter, zoom, and select interactions that allow the user to reduce the number of data points to inspect at any given time.
+
+In the ``mutation plot'', we used the same approach of representing quantitative data on a discrete genomic coordinate scale and a continuous ``mutation metric'' scale.
+In contrast to the site plot, we chose to only show mutation-level data for sites that users selected in the site plot.
+We also chose to represent these quantitative data by the height of the alphabetical letter associated with the amino acid of the mutation at each position.
+This encoding, also known as a ``logo plot'', allowed us to communicate additional information about the relative contribution of each amino acid to an overall site metric.
+Although logo plots are technically a less effective representation of these quantitative data, due to their use of arbitrary differences in area associated with each letter, they are a standard representation of these data in the field of DMS research.
+We applied a color encoding to each mutation metric value such that amino acids were colored according to their biophysical group (hydrophobic, positively charged, negatively charged, etc.).
+As with the site plot, we provided details on demand when the user hovers over specific mutations at each genomic position.
+A major limitation of our logo plot implementation is its fixed width.
+As the user selects more sites in the site plot, we scale down the width of each logo plot column.
+When more than a couple dozen sites have been selected, the amino acid letters in the logo plot become illegible for all except the higher values.
+
+Finally, we encoded the 3D structure of a given protein using a reduced space representation known as the ``cartoon'' view.
+In this view, selected sites appear more clearly as large bubbles against a ribbon of the unselected sites.
+We enabled the protein viewer's rotation functionality that allows users to spin the protein around in three dimensions.
+As with the site plot, we encoded the site metric of each position by color on a viridis scale.
+We made this choice primarily because the most effective representations of these quantitative data (the spatial x, y, and z axes) were already in use by the protein structure itself.
+We also provided details on demand for each protein site.
 
 \section{Visualization of antigenic phenotypes}
 
