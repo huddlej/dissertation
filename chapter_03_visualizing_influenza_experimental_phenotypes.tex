@@ -147,8 +147,8 @@ When the test and reference viruses differ, the assay provides a heterologous ti
 
 Researchers report titer measurements as both raw and normalized values.
 Raw titer measurements represent the denominator associated with the minimum dilution required to inhibit agglutination.
-For example, a single two-fold dilution has a titer of 2.
-Ten two-fold dilutions have a titer of $2^{10}$ or 1024.
+These two-fold dilution series have raw measurements like 80, 160, 320, etc. such that lower numbers represent the presence of more antisera in the dilution.
+These raw measurements can also be represented more conveniently on a $\log_{2}$ scale \citep{Smith:2004jc,Bedford:2014bf}.
 Antisera vary in their potency such that some sera always require higher or lower dilutions to inhibit agglutination regardless of the test virus.
 For example, a low potency antiserum requires a lower dilution to inhibit agglutination by the same reference virus resulting in a low autologous titer.
 To account for this variable potency, we normalize titer measurements by subtracting the $\log_{2}$ titer between a test and reference virus (the heterologous titer) from the $\log_{2}$ titer between the reference virus and its own antisera (the autologous titer).
@@ -165,7 +165,7 @@ However, antigenic cartography is less suited to representations of short-term a
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/antigenic-cartography-bedford-2014.png}
-  \caption{\label{fig:antigenic-cartography-bedford-2014} Antigenic cartography of titer measurements from seasonal influenza lineages.
+  \caption{\label{fig:antigenic-cartography-bedford-2014} Antigenic cartography of titer measurements from seasonal influenza lineages from Figure 1 of \citet{Bedford:2014bf}.
     Raw titer measurements in a multidimensional matrix are transformed through Bayesian multidimensional scaling (BMDS) to a two-dimensional representation.
     These antigenic maps reveal long-term patterns of antigenic drift.}
 \end{figure}
@@ -181,7 +181,7 @@ The benefits of visualizing the phylogenetic context of antigenic distances for 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/nextflu-titer-phylogeny.png}
-  \caption{\label{fig:titer-phylogeny} Antigenic distance (mean log2 titer drop) between test strains (colored tips) and a selected reference virus's antiserum (red crossmark) in the context of a H3 phylogeny of recently circulating strains.}
+  \caption{\label{fig:titer-phylogeny} Antigenic distance (mean log2 titer drop) between test strains (colored tips) and a selected reference virus's antiserum (red crossmark) in the context of a H3 phylogeny of recently circulating strains from nextflu \citep{Neher:2015jr}.}
 \end{figure}
 
 Another recent representation of pairwise antigenic distances attempts to address the limitations of the phylogenetic visualization.
@@ -209,7 +209,19 @@ Additionally, users wanted to know which available antiserum has the lowest anti
 Finally, users wanted to compare the antigenic diversity of extant clades.
 From these user goals, we decided that an optimal visualization would summarize the distribution of antigenic distances by antiserum and clade.
 
-Expressiveness and effectiveness \citep{Mackinlay1986}.
+We observed that the existing titer matrix heatmaps addressed most of the user goals except for communicating which extant clades were missing measurements.
+Both the phylogenetic and heatmap views use color to encode the most relevant quantitative data of antigenic distance.
+Previous visualization design research has shown that quantitative data are more effectively represented by positional encodings (e.g., x- or y-axis positions) whereas nominal data (e.g., phylogenetic clades) can be effectively encoded with color \citep{Mackinlay1986}.
+In the phylogenetic view, the two available positional axes are used to represent time and the unitless phylogenetic position of nodes.
+Neither of these data are relevant to the user goals described above.
+In the titer matrix heatmaps, the two positional axes are used to encode two nominal data types (reference virus name and clade name).
+
+We reasoned that we could make a more effective visualization that addressed most user goals by changing the encoding of data in the titer matrix heatmaps.
+Specifically, we chose to temporally omit clade names from the visualization and encode the antigenic distances on the positional x-axis.
+By encoding antigenic distance on a positional axis, we could annotate relevant thresholds for antigenic distances, show all available measurements for each reference virus at once, and display a summary statistic (mean antigenic distance) for each reference virus.
+We chose to maintain the encoding of nominal reference virus names on the y-axis, since most user goals require interrogation of specific antisera.
+With color available as an additional channel, we decided to encode the antigenic class of each antigenic distance with color.
+We implemented this design as an interactive visualization with the Altair visualization framework \citep{VanderPlas2018} at \url{https://cse512-19s.github.io/A3-Influenza-vaccine/} (Figure~\ref{fig:prototype-antigenic-viz}).
 
 \begin{figure}
   \centering
@@ -221,4 +233,23 @@ Expressiveness and effectiveness \citep{Mackinlay1986}.
     The interactive version of the visualization allows users to filter distances reported to a range of years for sera and test viruses by clicking and dragging across the corresponding histogram.
     The interactive visualization provides details on demand when users hover over specific circles including the name of the test virus, the $\log_{2}$ distance between test and reference viruses, and the $\log_{2}$ autologous distance of the corresponding serum.
   }
+\end{figure}
+
+This interactive visualization allows users to quickly compare which antisera have more measurements than others by the presence or absence of circles.
+By interactively selected years of test viruses to display, users can filter the display to see the distribution of antigenic distances (and mean distance) to recent viruses from all selected antisera.
+The distribution of antigenic distances identifies which antisera have perform poorly in HI assays (those with many negative normalized values, shown in gray) and which are antigenically distinct from most circulating viruses (i.e., poor vaccine candidates).
+
+Despite its strengths, this visualization also has several weaknesses.
+Distances are not grouped anywhere by clade, making comparisons between antisera by clade impossible.
+This missing information also prevents users from identifying which clades need more titer measurements.
+Finally, the alphabetic order of reference viruses on the y-axis wastes an opportunity to communicate more important information to the user.
+For example, if users could choose to sort the reference viruses by their mean antigenic distance or by their number of measurements, this single visualization could help users more rapidly identify antisera to consider for vaccine candidates or for additional HI experiments.
+We anticipate that the inclusion of clade status in a future implementation (by color or in small multiples) and the default sorting of reference viruses by mean antigenic distance could address these remaining limitations (for example, Figure~\ref{fig:mockup-of-antigenic-distance-by-clade}).
+The resulting visualization could provide a more effective real-time view of the same data currently displayed statically in titer matrix heatmaps.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chapter_03/antigenic-distance-by-clade-and-serum-mockup.png}
+  \caption{\label{fig:mockup-of-antigenic-distance-by-clade} Mockup of an alternative representation of antigenic distances by clade and antiserum.
+  This encoding of data would allow users to accomplish primary goals including identifying antisera without many measurements, distance of reference viruses across clades, and comparison of antigenic distances between clades.}
 \end{figure}
