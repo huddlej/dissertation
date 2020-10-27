@@ -153,27 +153,42 @@ Antisera vary in their potency such that some sera always require higher or lowe
 For example, a low potency antiserum requires a lower dilution to inhibit agglutination by the same reference virus resulting in a low autologous titer.
 To account for this variable potency, we normalize titer measurements by subtracting the $\log_{2}$ titer between a test and reference virus (the heterologous titer) from the $\log_{2}$ titer between the reference virus and its own antisera (the autologous titer).
 The resulting normalized titers enable comparisons of antigenic distances across reference viruses.
+Importantly, viruses with a $\log_{2}$ distance greater than 2 are considered antigenically distinct for the purposes of deciding updates to vaccine composition \citep{}.
 
-\subsection{Visual representations of antigenic distances}
+\subsection{Previous visual representations of antigenic distances}
 
-Antigenic cartography \citep{Smith:2004jc,Bedford:2014bf}.
-Phylogenetic titer models \citep{Neher:2016hy} in nextflu \citep{Neher:2015jr}.
-Titer matrices in WHO reports \citep{Bedford113035,Bedford271114,Bedford780627}.
-
-Alternate approach to representing antigenic distances informed by goal-driven design and visual design principles of expressiveness and effectiveness.
-Expressiveness and effectiveness \citep{Mackinlay1986}.
+To understand broad patterns of antigenic drift beyond simple pairwise relationships, antigenic distance must be summarized by statistical or visual representations.
+For example, the method of antigenic cartography maps multidimensional antigenic distances to a two-dimensional space using dimensionality reduction methods \citep{Smith:2004jc,Bedford:2014bf}.
+These map-like visualizations reveal long-term patterns and trends in antigenic drift within seasonal influenza lineages like the punctuated emergence of new antigenic clusters every few years (Figure~\ref{fig:antigenic-cartography-bedford-2014}).
+However, antigenic cartography is less suited to representations of short-term antigenic drift on the same time scale as annual vaccine updates in each hemisphere.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/antigenic-cartography-bedford-2014.png}
-  \caption{\label{fig:antigenic-cartography-bedford-2014} }
+  \caption{\label{fig:antigenic-cartography-bedford-2014} Antigenic cartography of titer measurements from seasonal influenza lineages.
+    Raw titer measurements in a multidimensional matrix are transformed through Bayesian multidimensional scaling (BMDS) to a two-dimensional representation.
+    These antigenic maps reveal long-term patterns of antigenic drift.}
 \end{figure}
+
+Alternate visualizations created in the nextflu \citep{Neher:2015jr} and Nextstrain \citep{Hadfield2018} frameworks address the needs of influenza researchers who make decisions about vaccine composition.
+Within nextflu, all available pairwise antigenic distances between a selected reference virus's antisera and test viruses are represented by colored tips on a phylogenetic tree constructed from HA sequences (Figure~\ref{fig:titer-phylogeny}).
+This interactive visualization allows users to select a specific reference virus by clicking a ``gear'' icon drawn on the phylogeny where the reference virus occurs.
+All tips in the tree that have titer measurements to the selected reference appear as circles colored by the quantitative value of their antigenic distance (e.g., smaller distances are blue, larger distances are red).
+This representation of the pairwise data allows users to identify phylogenetic clades that are antigenically distance from a given antiserum or that are missing measurements from that antiserum.
+Influenza virologists use this information to select potential vaccine candidates that ``cover'' the most extant clades and prioritize which HI assays to perform next.
+The benefits of visualizing the phylogenetic context of antigenic distances for a single antiserum are balanced by visual design costs of not showing antigenic distances for all antisera in a single view.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/nextflu-titer-phylogeny.png}
   \caption{\label{fig:titer-phylogeny} Antigenic distance (mean log2 titer drop) between test strains (colored tips) and a selected reference virus's antiserum (red crossmark) in the context of a H3 phylogeny of recently circulating strains.}
 \end{figure}
+
+Another recent representation of pairwise antigenic distances attempts to address the limitations of the phylogenetic visualization.
+This representation summarizes the mean antigenic distances between a subset of relevant reference viruses (i.e., likely vaccine candidates) and all tests viruses within each extant clade.
+The resulting heatmaps use the x-axis to encode phylogenetic clades, the y-axis to encode reference viruses, and color to encode the mean $\log_{2}$ distance between a given reference virus and corresponding test viruses (Figure~\ref{fig:titer-matrix}).
+These static heatmaps express more data than the phylogenetic representation, allowing decision-makers to identify qualitative trends across antisera and clades in biannual reports to the World Health Organization \citep{Bedford271114,Bedford780627}.
+As with all heatmap, these titer matrices suffer reduced expressiveness by encoding the most valuable quantitative data with color instead of a spatial scale.
 
 \begin{figure}
   \centering
@@ -182,6 +197,19 @@ Expressiveness and effectiveness \citep{Mackinlay1986}.
     The median autologous raw titer of antisera for representative viruses is shown after the corresponding virus's name and clade membership.
     White squares represent missing data.}
 \end{figure}
+
+\subsection{Improved visual representations of antigenic distances}
+
+Given the benefits and costs of existing visualizations of antigenic distances, we wondered whether we could apply user-driven design and established visual design principles to produce a more expressive and effective visualization for influenza virologists.
+To this end, we established the goals of users who would interact with our visualizations, identified the most effective encodings for the data users needed to explore, and composed an interactive visualization from these encodings to address the desired goals.
+
+Based on informal user interviews with collaborators at the Influenza Division of the Centers for Disease Control and Prevention, we identified a list of primary goals for the phylogenetic and heatmap visualizations.
+Users wanted to know which currently circulating clades of influenza have measurements against a given serum, to prioritize which clades to select test viruses from in future HI experiments.
+Additionally, users wanted to know which available antiserum has the lowest antigenic distance across all circulating clades, to identify potential vaccine candidates.
+Finally, users wanted to compare the antigenic diversity of extant clades.
+From these user goals, we decided that an optimal visualization would summarize the distribution of antigenic distances by antiserum and clade.
+
+Expressiveness and effectiveness \citep{Mackinlay1986}.
 
 \begin{figure}
   \centering
