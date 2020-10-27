@@ -126,6 +126,8 @@ We also provided details on demand for each protein site.
 
 \section{Visualization of antigenic phenotypes}
 
+\subsection{Introduction}
+
 A primary component of seasonal influenza A/H3N2 evolution is the ability of viruses to acquire mutations that allow them to escape antibodies from previous infections.
 This process, known as antigenic drift, changes the appearance of viral surface proteins hemagglutinin (HA) and neuraminidase (NA).
 Viruses balance escape from antibodies with the maintenance of their protein functions.
@@ -143,6 +145,30 @@ The highest dilution of antisera required to inhibit agglutination provides the 
 When the test virus is the same as the reference virus, the assay provides an autologous titer measurement.
 When the test and reference viruses differ, the assay provides a heterologous titer measurement.
 
+Researchers report titer measurements as both raw and normalized values.
+Raw titer measurements represent the denominator associated with the minimum dilution required to inhibit agglutination.
+For example, a single two-fold dilution has a titer of 2.
+Ten two-fold dilutions have a titer of $2^{10}$ or 1024.
+Antisera vary in their potency such that some sera always require higher or lower dilutions to inhibit agglutination regardless of the test virus.
+For example, a low potency antiserum requires a lower dilution to inhibit agglutination by the same reference virus resulting in a low autologous titer.
+To account for this variable potency, we normalize titer measurements by subtracting the $\log_{2}$ titer between a test and reference virus (the heterologous titer) from the $\log_{2}$ titer between the reference virus and its own antisera (the autologous titer).
+The resulting normalized titers enable comparisons of antigenic distances across reference viruses.
+
+\subsection{Visual representations of antigenic distances}
+
+Antigenic cartography \citep{Smith:2004jc,Bedford:2014bf}.
+Phylogenetic titer models \citep{Neher:2016hy} in nextflu \citep{Neher:2015jr}.
+Titer matrices in WHO reports \citep{Bedford113035,Bedford271114,Bedford780627}.
+
+Alternate approach to representing antigenic distances informed by goal-driven design and visual design principles of expressiveness and effectiveness.
+Expressiveness and effectiveness \citep{Mackinlay1986}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chapter_03/antigenic-cartography-bedford-2014.png}
+  \caption{\label{fig:antigenic-cartography-bedford-2014} }
+\end{figure}
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/nextflu-titer-phylogeny.png}
@@ -155,4 +181,16 @@ When the test and reference viruses differ, the assay provides a heterologous ti
   \caption{\label{fig:titer-matrix} Antigenic distance (mean log2 titer drop) between test strains sampled from recently circulating clades (columns) and antisera for representative viruses from these clades (rows).
     The median autologous raw titer of antisera for representative viruses is shown after the corresponding virus's name and clade membership.
     White squares represent missing data.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chapter_03/prototype-antigenic-viz.png}
+  \caption{\label{fig:prototype-antigenic-viz} Antigenic distance (mean log2 titer drop) between test viruses (circles) by serum reference virus.
+    Colors indicate distances at different actionable thresholds including measurements with a poor reference titer measurement (gray), measurements above two $\log_{2}$ units indicating substantial antigenic drift (yellow), and all other measurements (blue).
+    Black triangles show the mean antigenic distance per serum.
+    Histograms at the top and right represent the number of sera or test viruses per year, respectively.
+    The interactive version of the visualization allows users to filter distances reported to a range of years for sera and test viruses by clicking and dragging across the corresponding histogram.
+    The interactive visualization provides details on demand when users hover over specific circles including the name of the test virus, the $\log_{2}$ distance between test and reference viruses, and the $\log_{2}$ autologous distance of the corresponding serum.
+  }
 \end{figure}
