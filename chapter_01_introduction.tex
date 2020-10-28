@@ -1,3 +1,33 @@
 \chapter {Introduction}
 
-Introduction goes here.
+Seasonal influenza infects 5--15\% of the global population yearly causing 100,000s of deaths and influenza subtype A/H3N2 is responsible for the bulk of human mortality and morbidity \cite{WHO2009}.
+Influenza virus naturally evolves to escape acquired immunity in the human population and this evolution results in loss of vaccine efficacy over time as the virus evolves away from the chosen vaccine strain.
+This process of \textit{antigenic drift} necessitates yearly selection of vaccine strains by the World Health Organization (WHO).
+Manufacture and distribution of the influenza vaccine takes almost one year.
+As a result, \textbf{WHO officials must predict the strains that will predominate in the next influenza season a year in advance}.
+The predictions required for vaccine development have been historically challenging, but recent improvements in sequencing throughput and developments in computational models have made the prediction of influenza virus evolution more tractable \cite{Lassig:2017hr,Morris:2017ea}.
+
+Globally successful seasonal influenza viruses are usually antigenically distinct from previous lineages \cite{Smith:2004jc}.
+Thus, antigenic drift is an important predictor for influenza surveillance and vaccine recommendations \cite{Morris:2017ea}.
+Antigenic drift occurs through mutations to the hemagglutinin (HA) surface protein that abrogate binding of preexisting human antibodies.
+Antigenic phenotype is most commonly measured through the hemagglutination inhibition (HI) assay, which quantifies the extent to which antisera blocks attachment of viruses to red blood cells \cite{hirst1943studies}.
+HI assays are the gold standard for measuring antigenic drift phenotypes, but these experiments are typically low-throughput and laborious compared to modern genome sequencing \cite{Wood:2012ii}.
+Thus, researchers have attempted to predict viral success by estimating antigenic drift from HA genome sequences alone \cite{Luksza:2014hj,Steinbruck:2014kq,Neher:2014eu}.
+
+In the four years since the publication of these initial models, significant advances in influenza virology and computational modeling have paved the way for more biologically-informed predictive models.
+Recent computational methods can map HI measurements to phylogenetic trees of HA and accurately infer missing measurements between pairs of viruses using their shared ancestry \cite{Neher:2016hy}.
+By accounting for variation in viral avidity and serum potency, these methods provide a standardized measurement of antigenic phenotype that can inform existing predictive models.
+The application of deep mutational scanning to influenza proteins has enabled high-throughput quantification of functional constraints to protein evolution \cite{Thyagarajan:2014go,Wu:2014ii,Doud:2016gm}.
+The site-specific amino acid preferences for HA provided by these assays correlate with the success of viruses in nature \cite{Lee2018} and may provide a complementary fitness metric to existing measures of antigenic drift.
+In addition to these improved measures of HA, recent studies highlight the importance of antigenic effects in neuraminidase (NA) \cite{Chen:2018kp} and fitness effects associated with the reassortment of HA with other proteins \cite{Villa:2017iw}.
+The inclusion of evolutionary metrics for the entire influenza genome should therefore improve the predictive power of existing HA-only models.
+Finally, a detailed study of influenza phylodynamics has confirmed the importance of global circulation patterns to the success of influenza populations and revealed the variability of these patterns among influenza A and B subtypes \cite{Bedford:2015fj}.
+The resulting subtype-specific estimates of migration rate could readily benefit existing predictive models, which currently assume all viruses are panmictic.
+Despite the importance of these complementary characteristics of influenza fitness, no current predictive model of influenza evolution integrates all of these phenotypic, genomic, and geographic metrics with existing metrics of antigenic drift from HA sequences.
+
+\textbf{Although these modern fitness metrics are conceptually straightforward, their design, implementation, and interpretation requires extensive expertise in multiple domains of science including influenza virology, phylogenetics, statistics, bioinformatics, and epidemiology}.
+Further, the application of the resulting predictive models to improve vaccine efficacy requires ongoing collaborations with applied public health officials who can use model recommendations to make vaccine design decisions.
+The Bedford lab is uniquely equipped with both the knowledge required to implement these improved predictive models and the collaborations required to apply these models to inform public health policy.
+The methods I propose below will improve the performance of existing predictive models of influenza evolution.
+The resulting predictions will inform annual reports to the WHO made by Dr.\ Bedford and long-term collaborator Dr.\ Richard Neher \cite{Bedford113035,Bedford271114} and their recommendations at annual WHO influenza vaccine design meetings.
+Even a small improvement in vaccine efficacy as a result of this improved model performance will manifest as a large absolute number of influenza cases averted due to high vaccine coverage combined with high incidence of infection.
