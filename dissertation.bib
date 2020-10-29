@@ -2764,3 +2764,151 @@ numpages = {32}
   title = {Altair: Interactive Statistical Visualizations for Python},
   journal = {Journal of Open Source Software}
 }
+
+@article{Li2009,
+    author = {Li, Heng and Handsaker, Bob and Wysoker, Alec and Fennell, Tim and Ruan, Jue and Homer, Nils and Marth, Gabor and Abecasis, Goncalo and Durbin, Richard and 1000 Genome Project Data Processing Subgroup},
+    title = "{The Sequence Alignment/Map format and SAMtools}",
+    journal = {Bioinformatics},
+    volume = {25},
+    number = {16},
+    pages = {2078-2079},
+    year = {2009},
+    month = {06},
+    abstract = "{Summary: The Sequence Alignment/Map (SAM) format is a generic alignment format for storing read alignments against reference sequences, supporting short and long reads (up to 128 Mbp) produced by different sequencing platforms. It is flexible in style, compact in size, efficient in random access and is the format in which alignments from the 1000 Genomes Project are released. SAMtools implements various utilities for post-processing alignments in the SAM format, such as indexing, variant caller and alignment viewer, and thus provides universal tools for processing read alignments.Availability:http://samtools.sourceforge.netContact:rd@sanger.ac.uk}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btp352},
+    url = {https://doi.org/10.1093/bioinformatics/btp352},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/25/16/2078/531810/btp352.pdf},
+}
+
+@article{Li2011,
+    author = {Li, Heng},
+    title = "{A statistical framework for SNP calling, mutation discovery, association mapping and population genetical parameter estimation from sequencing data}",
+    journal = {Bioinformatics},
+    volume = {27},
+    number = {21},
+    pages = {2987-2993},
+    year = {2011},
+    month = {09},
+    abstract = "{Motivation: Most existing methods for DNA sequence analysis rely on accurate sequences or genotypes. However, in applications of the next-generation sequencing (NGS), accurate genotypes may not be easily obtained (e.g. multi-sample low-coverage sequencing or somatic mutation discovery). These applications press for the development of new methods for analyzing sequence data with uncertainty.Results: We present a statistical framework for calling SNPs, discovering somatic mutations, inferring population genetical parameters and performing association tests directly based on sequencing data without explicit genotyping or linkage-based imputation. On real data, we demonstrate that our method achieves comparable accuracy to alternative methods for estimating site allele count, for inferring allele frequency spectrum and for association mapping. We also highlight the necessity of using symmetric datasets for finding somatic mutations and confirm that for discovering rare events, mismapping is frequently the leading source of errors.Availability:http://samtools.sourceforge.netContact:hengli@broadinstitute.org}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btr509},
+    url = {https://doi.org/10.1093/bioinformatics/btr509},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/27/21/2987/577342/btr509.pdf},
+}
+
+@article{Cock2009,
+    author = {Cock, Peter J. A. and Antao, Tiago and Chang, Jeffrey T. and Chapman, Brad A. and Cox, Cymon J. and Dalke, Andrew and Friedberg, Iddo and Hamelryck, Thomas and Kauff, Frank and Wilczynski, Bartek and de Hoon, Michiel J. L.},
+    title = "{Biopython: freely available Python tools for computational molecular biology and bioinformatics}",
+    journal = {Bioinformatics},
+    volume = {25},
+    number = {11},
+    pages = {1422-1423},
+    year = {2009},
+    month = {03},
+    abstract = "{Summary: The Biopython project is a mature open source international collaboration of volunteer developers, providing Python libraries for a wide range of bioinformatics problems. Biopython includes modules for reading and writing different sequence file formats and multiple sequence alignments, dealing with 3D macro molecular structures, interacting with common tools such as BLAST, ClustalW and EMBOSS, accessing key online databases, as well as providing numerical methods for statistical learning.Availability: Biopython is freely available, with documentation and source code at www.biopython.org under the Biopython license.Contact: All queries should be directed to the Biopython mailing lists, see www.biopython.org/wiki/\_Mailing\_listspeter.cock@scri.ac.uk.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btp163},
+    url = {https://doi.org/10.1093/bioinformatics/btp163},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/25/11/1422/944180/btp163.pdf},
+}
+
+@Article{Talevich2012,
+author={Talevich, Eric
+and Invergo, Brandon M.
+and Cock, Peter JA
+and Chapman, Brad A.},
+title={Bio.Phylo: A unified toolkit for processing, analyzing and visualizing phylogenetic trees in Biopython},
+journal={BMC Bioinformatics},
+year={2012},
+month={Aug},
+day={21},
+volume={13},
+number={1},
+pages={209},
+abstract={Ongoing innovation in phylogenetics and evolutionary biology has been accompanied by a proliferation of software tools, data formats, analytical techniques and web servers. This brings with it the challenge of integrating phylogenetic and other related biological data found in a wide variety of formats, and underlines the need for reusable software that can read, manipulate and transform this information into the various forms required to build computational pipelines.},
+issn={1471-2105},
+doi={10.1186/1471-2105-13-209},
+url={https://doi.org/10.1186/1471-2105-13-209}
+}
+
+@article{Price2010,
+    author = {Price, Morgan N. AND Dehal, Paramvir S. AND Arkin, Adam P.},
+    journal = {PLOS ONE},
+    publisher = {Public Library of Science},
+    title = {FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments},
+    year = {2010},
+    month = {03},
+    volume = {5},
+    url = {https://doi.org/10.1371/journal.pone.0009490},
+    pages = {1-10},
+    abstract = {Background We recently described FastTree, a tool for inferring phylogenies for alignments with up to hundreds of thousands of sequences. Here, we describe improvements to FastTree that improve its accuracy without sacrificing scalability.  Methodology/Principal Findings Where FastTree 1 used nearest-neighbor interchanges (NNIs) and the minimum-evolution criterion to improve the tree, FastTree 2 adds minimum-evolution subtree-pruning-regrafting (SPRs) and maximum-likelihood NNIs. FastTree 2 uses heuristics to restrict the search for better trees and estimates a rate of evolution for each site (the “CAT” approximation). Nevertheless, for both simulated and genuine alignments, FastTree 2 is slightly more accurate than a standard implementation of maximum-likelihood NNIs (PhyML 3 with default settings). Although FastTree 2 is not quite as accurate as methods that use maximum-likelihood SPRs, most of the splits that disagree are poorly supported, and for large alignments, FastTree 2 is 100–1,000 times faster. FastTree 2 inferred a topology and likelihood-based local support values for 237,882 distinct 16S ribosomal RNAs on a desktop computer in 22 hours and 5.8 gigabytes of memory.  Conclusions/Significance FastTree 2 allows the inference of maximum-likelihood phylogenies for huge alignments. FastTree 2 is freely available at http://www.microbesonline.org/fasttree.},
+    number = {3},
+    doi = {10.1371/journal.pone.0009490}
+}
+
+@article{Stamatakis2014,
+    author = {Stamatakis, Alexandros},
+    title = "{RAxML version 8: a tool for phylogenetic analysis and post-analysis of large phylogenies}",
+    journal = {Bioinformatics},
+    volume = {30},
+    number = {9},
+    pages = {1312-1313},
+    year = {2014},
+    month = {01},
+    abstract = "{Motivation: Phylogenies are increasingly used in all fields of medical and biological research. Moreover, because of the next-generation sequencing revolution, datasets used for conducting phylogenetic analyses grow at an unprecedented pace. RAxML (Randomized Axelerated Maximum Likelihood) is a popular program for phylogenetic analyses of large datasets under maximum likelihood. Since the last RAxML paper in 2006, it has been continuously maintained and extended to accommodate the increasingly growing input datasets and to serve the needs of the user community.Results: I present some of the most notable new features and extensions of RAxML, such as a substantial extension of substitution models and supported data types, the introduction of SSE3, AVX and AVX2 vector intrinsics, techniques for reducing the memory requirements of the code and a plethora of operations for conducting post-analyses on sets of trees. In addition, an up-to-date 50-page user manual covering all new RAxML options is available.Availability and implementation: The code is available under GNU GPL at https://github.com/stamatak/standard-RAxML.Contact:alexandros.stamatakis@h-its.orgSupplementary information:Supplementary data are available at Bioinformatics online.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btu033},
+    url = {https://doi.org/10.1093/bioinformatics/btu033},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/30/9/1312/17345185/btu033.pdf},
+}
+
+@Article{Black2020,
+author={Black, Allison
+and MacCannell, Duncan R.
+and Sibley, Thomas R.
+and Bedford, Trevor},
+title={Ten recommendations for supporting open pathogen genomic analysis in public health},
+journal={Nature Medicine},
+year={2020},
+month={Jun},
+day={01},
+volume={26},
+number={6},
+pages={832-841},
+abstract={Increasingly, public-health agencies are using pathogen genomic sequence data to support surveillance and epidemiological investigations. As access to whole-genome sequencing has grown, greater amounts of molecular data have helped improve the ability to detect and track outbreaks of diseases such as COVID-19, investigate transmission chains and explore large-scale population dynamics, such as the spread of antibiotic resistance. However, the wide adoption of whole-genome sequencing also poses new challenges for public-health agencies that must adapt to support a new set of expertise, which means that the capacity to perform genomic data assembly and analysis has not expanded as widely as the adoption of sequencing itself. In this Perspective, we make recommendations for developing an accessible, unified informatic ecosystem to support pathogen genomic analysis in public-health agencies across income settings. We hope that the creation of this ecosystem will allow agencies to effectively and efficiently share data, workflows and analyses and thereby increase the reproducibility, accessibility and auditability of pathogen genomic analysis while also supporting agency autonomy.},
+issn={1546-170X},
+doi={10.1038/s41591-020-0935-z},
+url={https://doi.org/10.1038/s41591-020-0935-z}
+}
+
+@article {Bedford2020,
+	author = {Bedford, T. and Greninger, A. L. and Roychoudhury, P. and Starita, L. M. and Famulare, M. and Huang, M. and Nalla, A. and Pepper, G. and Reinhardt, A. and Xie, H. and Shrestha, L. and Nguyen, T. N. and Adler, A. and Brandstetter, E. and Cho, S. and Giroux, D. and Han, P. D. and Fay, K. and Frazar, C. D. and Ilcisin, M. and Lacombe, K. and Lee, J. and Kiavand, A. and Richardson, M. and Sibley, T. R. and Truong, M. and Wolf, C. R. and Nickerson, D. A. and Rieder, M. J. and Englund, J. A. and The Seattle Flu Study Investigators and Hadfield, J. and Hodcroft, E. B. and Huddleston, J. and Moncla, L. H. and M{\"u}ller, N. F. and Neher, R. A. and Deng, X. and Gu, W. and Federman, S. and Chiu, C. and Duchin, J. S. and Gautom, R. and Melly, G. and Hiatt, B. and Dykema, P. and Lindquist, S. and Queen, K. and Tao, Y. and Uehara, A. and Tong, S. and MacCannell, D. and Armstrong, G. L. and Baird, G. S. and Chu, H. Y. and Shendure, J. and Jerome, K. R.},
+	title = {Cryptic transmission of {SARS-CoV-2} in {W}ashington state},
+	elocation-id = {eabc0523},
+	year = {2020},
+	month = sep,
+	doi = {10.1126/science.abc0523},
+	publisher = {American Association for the Advancement of Science},
+	abstract = {Following its emergence in Wuhan, China, in late November or early December 2019, the SARS-CoV-2 virus has rapidly spread globally. Genome sequencing of SARS-CoV-2 allows reconstruction of its transmission history, although this is contingent on sampling. We have analyzed 453 SARS-CoV-2 genomes collected between 20 February and 15 March 2020 from infected patients in Washington State, USA. We find that most SARS-CoV-2 infections sampled during this time derive from a single introduction in late January or early February 2020 which subsequently spread locally before active community surveillance was implemented.},
+	issn = {0036-8075},
+	URL = {https://science.sciencemag.org/content/early/2020/09/09/science.abc0523},
+	eprint = {https://science.sciencemag.org/content/early/2020/09/09/science.abc0523.full.pdf},
+	journal = {Science}
+}
+
+@article{GenBank,
+    author = "{NCBI Resource Coordinators}",
+    title = "{Database resources of the National Center for Biotechnology Information}",
+    journal = {Nucleic Acids Research},
+    volume = {46},
+    number = {D1},
+    pages = {D8-D13},
+    year = {2017},
+    month = {11},
+    abstract = "{The National Center for Biotechnology Information (NCBI) provides a large suite of online resources for biological information and data, including the GenBank® nucleic acid sequence database and the PubMed database of citations and abstracts for published life science journals. The Entrez system provides search and retrieval operations for most of these data from 39 distinct databases. The E-utilities serve as the programming interface for the Entrez system. Augmenting many of the Web applications are custom implementations of the BLAST program optimized to search specialized data sets. New resources released in the past year include PubMed Data Management, RefSeq Functional Elements, genome data download, variation services API, Magic-BLAST, QuickBLASTp, and Identical Protein Groups. Resources that were updated in the past year include the genome data viewer, a human genome resources page, Gene, virus variation, OSIRIS, and PubChem. All of these resources can be accessed through the NCBI home page at www.ncbi.nlm.nih.gov.}",
+    issn = {0305-1048},
+    doi = {10.1093/nar/gkx1095},
+    url = {https://doi.org/10.1093/nar/gkx1095},
+    eprint = {https://academic.oup.com/nar/article-pdf/46/D1/D8/23162308/gkx1095.pdf},
+}
