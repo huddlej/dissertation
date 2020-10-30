@@ -1,12 +1,19 @@
 \chapter{Conclusions}
 
-\section{Does flu evolve like we think it does?}
+In the preceding chapters, I have shown how experimentally-informed computational models and interactive data visualizations can improve our understanding of seasonal influenza evolution.
+Clearly, many questions remain about seasonal influenza evolution and their answers are currently debated by experts in the field.
+One relevant example of these unanswered questions is how predictable the frequencies of individual mutations in seasonal influenza populations are.
+In the last years of this work, I collaborated with Dr.\ Pierre Barrat-Charlaix from Dr.\ Richard Neher's lab to help answer this question.
+The results from this collaboration provide a helpful counterpoint to the results I've presented in this dissertation.
+Below, I provide a summary of Dr.\ Barrat-Charlaix's findings, how they relate to this dissertation, and how these results have changed our understanding of influenza evolution.
 
-In \citet{Barrat-Charlaix2020}, we investigated the predictability of flu mutation frequencies.
-We explicitly avoided modeling flu evolution and focused on an empirical account of long-term outcomes for mutation frequency trajectories.
-We selected all available HA and NA sequences for flu lineages A/H3N2 and A/H1N1pdm, performed multiple sequence alignments per lineage and gene, binned sequences by month, and calculated the frequencies of mutations per site and month.
+\section{Does seasonal influenza evolve like we think it does?}
+
+In \citet{Barrat-Charlaix2020}, we investigated the predictability of seasonal influenza mutation frequencies.
+We explicitly avoided modeling seasonal influenza evolution and focused on an empirical account of long-term outcomes for mutation frequency trajectories.
+We selected all available HA and NA sequences for seasonal influenza lineages A/H3N2 and A/H1N1pdm, performed multiple sequence alignments per lineage and gene, binned sequences by month, and calculated the frequencies of mutations per site and month.
 From these data, we constructed frequency trajectories of individual mutations that were rising in frequency from zero.
-We expected these rising mutations to represent beneficial, large-effect mutations that would sweep through the global population as predicted by the population genetic theory described above.
+We expected these rising mutations to represent beneficial, large-effect mutations that would sweep through the global population as predicted by the population genetic theory \citep{Neher2013}.
 By considering individual mutations, we effectively averaged the outcomes of these mutations across all genetic backgrounds.
 We evaluated the outcomes of trajectories for mutations that had risen from 0\% to approximately 30\% global frequency and classified trajectories for mutations that fixed, died out, or persisted as polymorphisms.
 
@@ -34,23 +41,23 @@ This pattern corresponds to what we expect for mutations evolving neutrally, whe
 Generally, the pattern remained the same even when we binned mutations by high LBI, presence at epitope sites, multiple appearances of a mutation in a tree, geographic spread, or other potential metrics associated with high fitness.
 We concluded that the recent success of rising mutations provides no information about their eventual fixation.
 
-We tested whether we could explain these results by genetic linkage or clonal interference by simulating flu-like populations under these evolutionary constraints.
+We tested whether we could explain these results by genetic linkage or clonal interference by simulating seasonal influenza-like populations under these evolutionary constraints.
 Mutation trajectories from simulated populations were more predictable than those from natural populations.
 The closest our simulations came to matching the uncertainty of natural populations was when we dramatically increased the rate at which the fitness landscape of simulated populations changed.
-These results suggested that we cannot explain the unpredictable nature of flu mutation trajectories by linkage or clonal interference alone.
+These results suggested that we cannot explain the unpredictable nature of seasonal influenza mutation trajectories by linkage or clonal interference alone.
 
-Since flu mutation trajectories lacked ``momentum'' and LBI did not provide information about eventual fixation of mutations, we wondered whether we could identify the most representative sequence of future populations with a different metric.
+Since seasonal influenza mutation trajectories lacked ``momentum'' and LBI did not provide information about eventual fixation of mutations, we wondered whether we could identify the most representative sequence of future populations with a different metric.
 The consensus sequence is provably the best predictor for a neutrally evolving population.
 We found that the consensus sequence is often closer to the future population than the virus sequence with the highest LBI.
 Indeed, we found that the top LBI virus was frequently similar to the consensus sequence and often identical.
 
-Taken together, our results from this empirical analysis reveal that beneficial mutations of large effect do not predictably sweep through flu populations and fix.
+Taken together, our results from this empirical analysis reveal that beneficial mutations of large effect do not predictably sweep through seasonal influenza populations and fix.
 Instead, the average outcome for any individual mutation resembles neutral evolution, despite the strong positive selection expected to act on these mutations.
-Although simulations rule out clonal interference between large effect mutations as an explanation for these results, we cannot discount the role of multiple mutations of similar, smaller effects in the overall fitness of flu viruses and the fixation of multiple co-evolving mutations.
+Although simulations rule out clonal interference between large effect mutations as an explanation for these results, we cannot discount the role of multiple mutations of similar, smaller effects in the overall fitness of seasonal influenza viruses and the fixation of multiple co-evolving mutations.
 
-\section{Can we forecast flu evolution?}
+\section{Can we forecast seasonal influenza evolution?}
 
-In \citet{Huddleston2020}, we built a modeling framework based on the approach described in \citet{Luksza:2014hj} to forecast flu A/H3N2 populations one year in advance.
+In \citet{Huddleston2020}, we built a modeling framework based on the approach described in \citet{Luksza:2014hj} to forecast seasonal influenza A/H3N2 populations one year in advance.
 We used this framework to predict the sequence composition of the future population, the frequency dynamics of clades, and the virus in the current population that most represented the future population.
 As in \citet{Barrat-Charlaix2020} and \citet{Luksza:2014hj}, we assumed that viruses grow exponentially as a function of their fitness and that viruses with similarly high fitness compete with each other under clonal interference.
 In contrast to \citet{Barrat-Charlaix2020}, we considered the fitness of complete amino acid haplotypes instead of individual mutations.
@@ -61,9 +68,9 @@ The experimental metrics included a cross-immunity measure based on hemagglutina
 
 We trained models based on each of these metrics independently and in relevant combinations of complementary metrics.
 For each model, we fit coefficients per fitness metric that minimized the distance between the estimated and observed amino acid haplotype composition of the future (Figure~\ref{fig:model}).
-These coefficients represent the effect of each metric on flu fitness.
+These coefficients represent the effect of each metric on seasonal influenza fitness.
 As a control, we also calculated the distance to the future population for a ``naive'' model that assumed the future population is the same as the current population.
-To test our framework, we simulated 40 years of evolution for flu-like populations with SANTA-SIM and fit models to these data.
+To test our framework, we simulated 40 years of evolution for seasonal influenza-like populations with SANTA-SIM and fit models to these data.
 After verifying our framework with simulated populations, we trained models for natural A/H3N2 populations using 25 years of historical data.
 We tested the accuracy of each model by applying the coefficients from the training data to forecasts of new out-of-sample data from the last 5 years of A/H3N2 evolution.
 
@@ -93,7 +100,7 @@ From these results, we concluded that the predictive gains of fitness models dep
 
 Surprisingly, the sequence-based metrics of epitope cross-immunity and delta frequency and the mutational preferences from DMS experiments had little predictive power.
 These metrics failed to make accurate forecasts because of their dependence on a specific historical context.
-For example, the original epitope cross-immunity metric \citep{Luksza:2014hj} depends on a predefined list of epitope sites that were originally identified in a retrospective study of flu sequences up through 2005 \citep{Shih:2007bd}.
+For example, the original epitope cross-immunity metric \citep{Luksza:2014hj} depends on a predefined list of epitope sites that were originally identified in a retrospective study of seasonal influenza sequences up through 2005 \citep{Shih:2007bd}.
 This metric correspondingly failed to predict the future after 2005, suggesting that its previous success depended on inadvertently borrowing information from the future.
 Similarly, the mutational preferences from DMS experiments measure effects of all single amino acid mutations to the genetic background of the virus A/Perth/16/2009.
 The metric based on these preferences failed to predict the future after 2009, reflecting the strong dependence of these preferences on their original genetic background.
@@ -101,8 +108,7 @@ Both delta frequency and LBI suffered from overfitting to the training data, in 
 
 \section{How do results from our two studies compare?}
 
-The two studies we have presented here use different approaches to analyze the same natural flu populations.
-We completed these two studies mostly independently and have only now begun to reconcile their findings.
+The two studies we have presented here use different approaches to analyze the same natural seasonal influenza populations.
 We were especially interested to understand how simulated populations from the two studies differed and whether the optimal predictor from \citet{Barrat-Charlaix2020} could also be an accurate fitness metric in the modeling framework from \citet{Huddleston2020}.
 
 Simulated populations play an important role in our two studies.
@@ -128,9 +134,9 @@ These results highlight the importance of using complete haplotypes to make pred
     \label{fig:mutation-trajectories-simulated}
   \end{subfigure}
 
-  \caption[{Comparison of rising trajectories for natural H1N1pdm trajectories from \citet{Barrat-Charlaix2020} and simulated flu-like populations from \citet{Huddleston2020}.}]{{\bf Comparison of rising trajectories for natural H1N1pdm trajectories from \citet{Barrat-Charlaix2020} and simulated flu-like populations from \citet{Huddleston2020}.}
+  \caption[{Comparison of rising trajectories for natural H1N1pdm trajectories from \citet{Barrat-Charlaix2020} and simulated seasonal influenza-like populations from \citet{Huddleston2020}.}]{{\bf Comparison of rising trajectories for natural H1N1pdm trajectories from \citet{Barrat-Charlaix2020} and simulated seasonal influenza-like populations from \citet{Huddleston2020}.}
     A) Rising trajectories for H1N1pdm mutations as reported in Figure S9 of \citet{Barrat-Charlaix2020}.
-    B) Rising trajectories for flu-like populations simulated with SANTA-SIM in \citet{Huddleston2020}.
+    B) Rising trajectories for seasonal influenza-like populations simulated with SANTA-SIM in \citet{Huddleston2020}.
     Mutation trajectories from simulated populations resemble those of natural H1N1pdm mutations.\label{fig:mutation-trajectories-comparison}
   }
 \end{figure}
@@ -167,22 +173,22 @@ However, experimental measurements of antigenic drift still provide more informa
 We anticipate that this new distance from consensus metric could eventually replace the existing mutational load metric in a combined model with HI antigenic novelty.
 This new combined model could potentially provide better estimates of functional constraint (by limiting changes from the consensus) and antigenic drift (by using experimental measures of antigenic drift phenotypes.)
 
-\section{How have these results changed how we think about flu evolution?}
+\section{How have these results changed how we think about seasonal influenza evolution?}
 
-In general, we found that the evolution of H3N2 flu populations remains difficult to predict.
+In general, we found that the evolution of H3N2 seasonal influenza populations remains difficult to predict.
 The frequency dynamics and fixation probabilities of individual mutations resemble neutrally evolving alleles.
-We can weakly predict the frequency dynamics of flu clades when we combine experimental and genetic data in models that account for antigenic drift and mutational load.
-In the best case, we can use these same biologically-informed models to predict the sequence composition of future flu populations.
+We can weakly predict the frequency dynamics of seasonal influenza clades when we combine experimental and genetic data in models that account for antigenic drift and mutational load.
+In the best case, we can use these same biologically-informed models to predict the sequence composition of future seasonal influenza populations.
 However, these complex fitness models do not always outperform simpler models, when predicting which individual virus is the most representative of the future population.
 In \citet{Barrat-Charlaix2020}, the consensus sequence of the current population was as close or closer to the future population than the sequence with the highest local branching index.
 In \citet{Huddleston2020}, a naive model estimated the single closest strain to the future nearly as well as the best biologically-informed models.
 
-Successful flu predictions depend on the choice of prediction targets and fitness metrics.
+Successful seasonal influenza predictions depend on the choice of prediction targets and fitness metrics.
 Future prediction efforts should attempt to estimate the composition of future populations instead of future clade frequencies.
 Fitness models should account for the genetic background of beneficial mutations and favor fitness metrics that are the least susceptible to model overfitting and historical contingency.
 The benefits of considering the genetic background of individual mutations in HA suggest that considering the context of all genes should yield gains, too.
 We need measures of antigenic drift from human antisera to complement current measures based on ferret antisera.
-We may also improve forecast accuracy by accounting for flu's global migration patterns.
+We may also improve forecast accuracy by accounting for seasonal influenza's global migration patterns.
 Most importantly, we should make the forecasting problem itself easier by embracing efforts to reduce the lag between vaccine composition decisions and distribution to the public.
 
 With a validated forecasting framework in hand, we can readily produce real-time forecasts at nextstrain.org and as part of recommendations submitted to the World Health Organization prior to biannual vaccine composition meetings \cite{Bedford780627}.
@@ -190,6 +196,6 @@ Other modeling groups produce similar reports with forecasts of even higher prec
 However, there is no expectation or formal requirement for us to revisit and evaluate the accuracy of our predictions.
 The long-term historical accuracy of forecasting models does not matter, if these models fail to perform consistently in modern forecasts.
 For this reason, we recommend that modeling groups formally archive their forecasts for each composition meeting and periodically assess the performance of their models in real forecasting conditions.
-Modeling groups that participate in short-term or within-season flu forecasts have already adopted this approach, as part of the CDC Flusight network.
+Modeling groups that participate in short-term or within-season seasonal influenza forecasts have already adopted this approach, as part of the CDC Flusight network.
 The Zoltar Forecast Archive \citep{reich2020zoltar} was designed with these forecasts in mind and could be modified to support storage of long-term forecasts.
 We expect that these formal archives of real forecasts will improve accountability of modeling groups, increase the accuracy of forecasts made by their models, and encourage community consensus on model targets.
