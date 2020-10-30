@@ -13,14 +13,14 @@ We evaluated the outcomes of trajectories for mutations that had risen from 0\% 
 \begin{figure}
   \centering
   \includegraphics[width=0.75\textwidth]{chapter_05/flu-forecasting-mutation-trajectories-static.png}
-  \caption{Mutation trajectories for seasonal influenza A/H3N2 where mutations rose from a frequency of zero to approximately 30\% frequency.
+  \caption[{Mutation trajectories for seasonal influenza A/H3N2 where mutations rose from a frequency of zero to approximately 30\% frequency.}]{{\bf Mutation trajectories for seasonal influenza A/H3N2 where mutations rose from a frequency of zero to approximately 30\% frequency.}
     Dashed horizontal lines represent thresholds for fixation (red) and loss (blue).
     Trajectory colors also indicate eventual fixation (red), loss (blue), or persistence as a polymorphism (black).
     The thick black dashed line indicates the average frequency of all trajectories shown.
     For the interactive figure, hover over individual trajectories to highlight their full extent and details about the current frequency of a given mutation at each timepoint.
     Use the radio buttons to filter trajectories by segment and outcome.
     (After Figure 1B in \citet{Barrat-Charlaix2020}.)
-    \href{https://bedford.io/blog/predicting-seasonal-influenza-evolution/}{Explore an interactive version of this figure}.\label{fig:mutation-trajectories} }
+    \href{https://bedford.io/blog/predicting-seasonal-influenza-evolution/\#mutation-trajectories}{Explore an interactive version of this figure}.\label{fig:mutation-trajectories} }
 \end{figure}
 
 The average trajectory of individual rising A/H3N2 mutations failed to rise toward fixation (Figure~\ref{fig:mutation-trajectories}).
@@ -70,10 +70,10 @@ We tested the accuracy of each model by applying the coefficients from the train
 \begin{figure}
   \begin{center}
   \includegraphics[width=\columnwidth]{chapter_04/Figure_1.pdf}
-  \caption{
-    Schematic representation of the fitness model for simulated H3N2-like populations.
+  \caption[{Schematic representation of the fitness model for simulated H3N2-like populations.}]{
+    {\bf Schematic representation of the fitness model for simulated H3N2-like populations.}
     The fitness of strains at timepoint $t$ determines the estimated frequency of strains with similar sequences one year in the future at timepoint $u$.
-    Genetically similar strains by amino acid sequence have similar colors (Methods).
+    Genetically similar strains by amino acid sequence have similar colors.
     A) Strains at timepoint $t$, $\mathbf{x}(t)$, are shown in their phylogenetic context and sized by their frequency at that timepoint.
     The estimated future population at timepoint $u$, $\mathbf{\hat{x}}(u)$, is projected to the right with strains scaled in size by their projected frequency based on the known fitness of each simulated strain.
     B) The frequency trajectories of strains at timepoint $t$ to $u$ represent the predicted the growth of the dark blue strains to the detriment of the pink strains.
@@ -128,7 +128,7 @@ These results highlight the importance of using complete haplotypes to make pred
     \label{fig:mutation-trajectories-simulated}
   \end{subfigure}
 
-  \caption{Comparison of rising trajectories for natural H1N1pdm trajectories from \citet{Barrat-Charlaix2020} and simulated flu-like populations from \citet{Huddleston2020}.
+  \caption[{Comparison of rising trajectories for natural H1N1pdm trajectories from \citet{Barrat-Charlaix2020} and simulated flu-like populations from \citet{Huddleston2020}.}]{{\bf Comparison of rising trajectories for natural H1N1pdm trajectories from \citet{Barrat-Charlaix2020} and simulated flu-like populations from \citet{Huddleston2020}.}
     A) Rising trajectories for H1N1pdm mutations as reported in Figure S9 of \citet{Barrat-Charlaix2020}.
     B) Rising trajectories for flu-like populations simulated with SANTA-SIM in \citet{Huddleston2020}.
     Mutation trajectories from simulated populations resemble those of natural H1N1pdm mutations.\label{fig:mutation-trajectories-comparison}
@@ -146,7 +146,7 @@ This negative coefficient would have the effect of penalizing strains whose amin
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_05/flu-forecasting-distance-to-consensus-vs-lbi-and-hi.png}
-  \caption{Model coefficients and distance to the future for LBI, HI antigenic novelty, and distance from consensus metrics.
+  \caption[{Model coefficients and distance to the future for LBI, HI antigenic novelty, and distance from consensus metrics.}]{{\bf Model coefficients and distance to the future for LBI, HI antigenic novelty, and distance from consensus metrics.}
     A) Coefficients are shown per validation timepoint (solid circles, N=23) with the mean +/- standard deviation in the top-left corner.
     For model testing, coefficients were fixed to their mean values from training/validation and applied to out-of-sample test data (open circles, N=8).
     B) Distances between projected and observed populations are shown per validation timepoint (solid black circles) or test timepoint (open black circles).

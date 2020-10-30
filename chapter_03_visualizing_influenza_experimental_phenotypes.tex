@@ -17,7 +17,11 @@ No existing tools provide linked views of the protein structure and DMS data in 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/dms.pdf}
-  \caption{Example deep mutational scanning workflow, modified from \citet{Lee2019}. The goal of this experiment is to quantify the how mutations affect a virus's ability to escape an antibody. The viral variant library contains all single amino-acid changes away from wildtype. The viral library is passaged in cell culture, with and without antibodies, to select for functional variants. Mutational effects are calculated based on deep sequencing of the pre-selected and post-selected libraries.\label{fig:dms}}
+  \caption[{Example deep mutational scanning workflow, modified from \citet{Lee2019}.}]{{\bf Example deep mutational scanning workflow, modified from \citet{Lee2019}.}
+    The goal of this experiment is to quantify the how mutations affect a virus's ability to escape an antibody.
+    The viral variant library contains all single amino-acid changes away from wildtype.
+    The viral library is passaged in cell culture, with and without antibodies, to select for functional variants.
+    Mutational effects are calculated based on deep sequencing of the pre-selected and post-selected libraries.\label{fig:dms}}
 \end{figure}
 
 Here we describe \emph{dms-view} (https://dms-view.github.io/), a flexible, web-based, interactive visualization tool for DMS data.
@@ -29,7 +33,7 @@ Importantly, \emph{dms-view} takes a flexible input data file so users can easil
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/dms-view-layout.png}
-  \caption{\label{fig:dms-view-layout}Using \emph{dms-view} to analyze DMS data.
+  \caption[{Using \emph{dms-view} to analyze DMS data.}]{\label{fig:dms-view-layout}{\bf Using \emph{dms-view} to analyze DMS data.}
     For further exploration, please visit https://dms-view.github.io.
     The \emph{dms-view} data section has three panels: the site plot, the mutation plot, and the protein structure plot.
     The interactive features for selecting sites and navigating are in the site plot panel.
@@ -40,7 +44,7 @@ Importantly, \emph{dms-view} takes a flexible input data file so users can easil
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/dms-view-variation-by-serum.png}
-  \caption{\label{fig:dms-view-variation-by-serum} The same five sites as in Figure~\ref{fig:dms-view-layout} but now plotted with the data from a different human serum, ``2009-age-53''.
+  \caption[{The same five sites as in Figure~\ref{fig:dms-view-layout} but now plotted with the data from a different human serum, ``2009-age-53''.}]{\label{fig:dms-view-variation-by-serum} {\bf The same five sites as in Figure~\ref{fig:dms-view-layout} but now plotted with the data from a different human serum, ``2009-age-53''.}
     Using \emph{dms-view} to compare, we see that different sites on HA are targeted by different sera.}
 \end{figure}
 
@@ -165,7 +169,7 @@ However, antigenic cartography is less suited to representations of short-term a
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/antigenic-cartography-bedford-2014.png}
-  \caption{\label{fig:antigenic-cartography-bedford-2014} Antigenic cartography of titer measurements from seasonal influenza lineages from Figure 1 of \citet{Bedford:2014bf}.
+  \caption[{Antigenic cartography of titer measurements from seasonal influenza lineages from Figure 1 of \citet{Bedford:2014bf}.}]{\label{fig:antigenic-cartography-bedford-2014} {\bf Antigenic cartography of titer measurements from seasonal influenza lineages from Figure 1 of \citet{Bedford:2014bf}.}
     Raw titer measurements in a multidimensional matrix are transformed through Bayesian multidimensional scaling (BMDS) to a two-dimensional representation.
     These antigenic maps reveal long-term patterns of antigenic drift.}
 \end{figure}
@@ -181,7 +185,7 @@ The benefits of visualizing the phylogenetic context of antigenic distances for 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/nextflu-titer-phylogeny.png}
-  \caption{\label{fig:titer-phylogeny} Antigenic distance (mean $\log_{2}$ titer drop) between test strains (colored tips) and a selected reference virus's antiserum (red crossmark) in the context of a H3 phylogeny of recently circulating strains from nextflu \citep{Neher:2015jr}.}
+  \caption[{Antigenic distance (mean $\log_{2}$ titer drop) between test strains (colored tips) and a selected reference virus's antiserum (red crossmark) in the context of a H3 phylogeny of recently circulating strains from nextflu \citep{Neher:2015jr}.}]{\label{fig:titer-phylogeny} {\bf Antigenic distance (mean $\log_{2}$ titer drop) between test strains (colored tips) and a selected reference virus's antiserum (red crossmark) in the context of a H3 phylogeny of recently circulating strains from nextflu \citep{Neher:2015jr}.}}
 \end{figure}
 
 Another recent representation of pairwise antigenic distances attempts to address the limitations of the phylogenetic visualization.
@@ -193,7 +197,7 @@ As with all heatmap, these titer matrices suffer reduced expressiveness by encod
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/titer_matrix_who_h3n2_ha_2y_cell_hi.png}
-  \caption{\label{fig:titer-matrix} Antigenic distance (mean $\log_{2}$ titer drop) between test strains sampled from recently circulating clades (columns) and antisera for representative viruses from these clades (rows).
+  \caption[{Antigenic distance (mean $\log_{2}$ titer drop) between test strains sampled from recently circulating clades (columns) and antisera for representative viruses from these clades (rows).}]{\label{fig:titer-matrix} {\bf Antigenic distance (mean $\log_{2}$ titer drop) between test strains sampled from recently circulating clades (columns) and antisera for representative viruses from these clades (rows).}
     The median autologous raw titer of antisera for representative viruses is shown after the corresponding virus's name and clade membership.
     White squares represent missing data.}
 \end{figure}
@@ -226,7 +230,7 @@ We implemented this design as an interactive visualization with the Altair visua
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/prototype-antigenic-viz.png}
-  \caption{\label{fig:prototype-antigenic-viz} Antigenic distance (mean $\log_{2}$ titer drop) between test viruses (circles) by serum reference virus.
+  \caption[{Antigenic distance (mean $\log_{2}$ titer drop) between test viruses (circles) by serum reference virus.}]{\label{fig:prototype-antigenic-viz} {\bf Antigenic distance (mean $\log_{2}$ titer drop) between test viruses (circles) by serum reference virus.}
     Colors indicate distances at different actionable thresholds including measurements with a poor reference titer measurement (gray), measurements above two $\log_{2}$ units indicating substantial antigenic drift (yellow), and all other measurements (blue).
     Black triangles show the mean antigenic distance per serum.
     Histograms at the top and right represent the number of sera or test viruses per year, respectively.
@@ -250,6 +254,6 @@ The resulting visualization could provide a more effective real-time view of the
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{chapter_03/antigenic-distance-by-clade-and-serum-mockup.png}
-  \caption{\label{fig:mockup-of-antigenic-distance-by-clade} Mockup of an alternative representation of antigenic distances by clade and antiserum.
+  \caption[{Mockup of an alternative representation of antigenic distances by clade and antiserum.}]{\label{fig:mockup-of-antigenic-distance-by-clade} {\bf Mockup of an alternative representation of antigenic distances by clade and antiserum.}
   This encoding of data would allow users to accomplish primary goals including identifying antisera without many measurements, distance of reference viruses across clades, and comparison of antigenic distances between clades.}
 \end{figure}
