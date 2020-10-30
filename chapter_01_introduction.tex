@@ -4,8 +4,8 @@
 
 Seasonal influenza infects 5--15\% of the global population yearly causing 100,000s of deaths and influenza subtype A/H3N2 is responsible for the bulk of human mortality and morbidity \citep{WHO2009}.
 Influenza virus naturally evolves to escape acquired immunity in the human population and this evolution results in loss of vaccine efficacy over time as the virus evolves away from the chosen vaccine strain.
-This process of \textit{antigenic drift} necessitates yearly selection of vaccine strains by the World Health Organization (WHO).
-Manufacture and distribution of the influenza vaccine takes almost one year and the vaccine can contain only one representative strain per seasonal influenza subtype (A/H3N2, A/H1N1pdm, B/Victoria, and B/Yamagata).
+This process of \textit{antigenic drift} necessitates yearly selection of vaccine strains by the World Health Organization (WHO) \citep{Smith:2004jc}.
+Manufacture and distribution of the influenza vaccine takes almost one year and the vaccine can contain only one representative strain per seasonal influenza subtype (A/H3N2, A/H1N1pdm, B/Victoria, and B/Yamagata) \citep{Buckland2015}.
 As a result, WHO officials must predict which currently circulating A/H3N2 strain will be more representative of the influenza population one year in the future.
 The predictions required for vaccine development have been historically challenging, but recent improvements in sequencing throughput and developments in computational models have made the prediction of influenza virus evolution more tractable \citep{Lassig:2017hr,Morris:2017ea}.
 The better these predictions are, the more likely the vaccine will prevent illness and death from infection.
@@ -19,11 +19,11 @@ Antigenic phenotype is most commonly measured through the hemagglutination inhib
 HI assays are the gold standard for measuring antigenic drift phenotypes, but these experiments are typically low-throughput and laborious compared to modern genome sequencing \citep{Wood:2012ii}.
 Thus, researchers have attempted to predict viral success by estimating antigenic drift from HA genome sequences alone \citep{Luksza:2014hj,Steinbruck:2014kq,Neher:2014eu}.
 
-Seasonal influenza viruses rapidly accumulate mutations during replication, due to their error-prone RNA polymerase.
+Seasonal influenza viruses rapidly accumulate mutations during replication, due to their error-prone RNA polymerase \citep{Petrova2018}.
 For most genes, most new amino acid mutations will weaken the functionality of their corresponding proteins and reduce viral fitness.
 An exception to this rule are amino acid mutations in HA or the other primary surface protein, neuraminidase (NA), that modify binding sites of host antibodies from previous viral exposure.
 These mutations contribute to antigenic drift and increase viral fitness by allowing viruses to escape existing antibodies (Figure~\ref{fig:beneficial-and-deleterious-mutations-in-ha}).
-Thus, mutations in HA and NA create fitness trade-offs, where beneficial mutations facilitate antigenic drift against a background of deleterious mutations.
+Thus, mutations in HA and NA create fitness trade-offs, where beneficial mutations facilitate antigenic drift against a background of deleterious mutations \citep{Koelle:2015dh}.
 
 \begin{figure}
   \centering
@@ -35,7 +35,7 @@ Thus, mutations in HA and NA create fitness trade-offs, where beneficial mutatio
   }
 \end{figure}
 
-Viruses carrying beneficial mutations should grow exponentially relative to viruses lacking those mutations (Figure~\ref{fig:exponential-growth-with-clonal-interference}A).
+Viruses carrying beneficial mutations should grow exponentially relative to viruses lacking those mutations (Figure~\ref{fig:exponential-growth-with-clonal-interference}A) \citep{Neher2013}.
 Beneficial mutations on different genetic backgrounds will compete with each other in a process known as clonal interference (Figure~\ref{fig:exponential-growth-with-clonal-interference}B).
 If beneficial mutations have large effects on fitness, the fitness of the genetic background where the beneficial mutations occur is less important for the success of the virus than the fitness effect of the beneficial mutations themselves (Figure~\ref{fig:fitness-landscape-by-mutation-effect-size}).
 If beneficial mutations have similar, smaller effects on fitness, a virus's overall fitness depends on the effect of the beneficial mutations and the relative fitness of its genetic background.
@@ -109,8 +109,8 @@ This model assumed that seasonal influenza viruses grow exponentially as a funct
 Instead of predicting the most representative virus of the future population, \citet{Luksza:2014hj} explicitly predicted the future frequencies of entire clades.
 
 Despite the success of these predictive models, other aspects of seasonal influenza evolution complicate predictions.
-When multiple beneficial mutations with large effects emerge in a population, the clonal interference between viruses reduces the probability of fixation for all mutations involved.
-Seasonal influenza populations also experience multiple bottlenecks in space and time including transmission between hosts, global circulation, and seasonality.
+When multiple beneficial mutations with large effects emerge in a population, the clonal interference between viruses reduces the probability of fixation for all mutations involved \citep{strelkowa2012clonal}.
+Seasonal influenza populations also experience multiple bottlenecks in space and time including transmission between hosts, global circulation, and seasonality \citep{Xue2018,Petrova2018}.
 These bottlenecks reduce seasonal influenza's effective population size and reduce the probability that beneficial mutations will sweep globally.
 Finally, antigenic escape assays with polyclonal human sera suggest that successful viruses must accumulate multiple beneficial mutations of large effect to successfully evade the diversity of global host immunity \citep{Lee2019}.
 
