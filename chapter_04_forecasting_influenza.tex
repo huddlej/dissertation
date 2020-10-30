@@ -2,7 +2,7 @@
 
 This work was originally published in \emph{eLife} at \url{https://doi.org/10.7554/eLife.60067}.
 
-\section*{Introduction}
+\section{Introduction}
 
 Seasonal influenza virus infects 5--15\% of the global population every year causing an estimated 250,000 to 500,000 deaths annually with the majority of infections caused by influenza A/H3N2 \citep{flufactsheet}.
 Vaccination remains the most effective public health response available.
@@ -36,9 +36,9 @@ We apply this framework to HA sequence data shared via the GISAID EpiFlu databas
 We systematically compare potential predictors and show that HI phenotypes enable more accurate long-term forecasts of H3N2 populations compared to previous metrics based on epitope mutations alone.
 We also find that composite models based on phenotypic measures of antigenic drift and genotypic measures of functional constraint consistently outperform any fitness models based on individual genotypic or phenotypic metrics.
 
-\section*{Results}
+\section{Results}
 
-\subsection*{A distance-based model of seasonal influenza evolution}
+\subsection{A distance-based model of seasonal influenza evolution}
 
 \begin{figure}
   \begin{center}
@@ -96,7 +96,7 @@ We calculated the lower bound for each model's performance as the optimal distan
 As an additional reference, we evaluated the performance of a ``naive'' model that predicted the future population would be identical to the current population.
 We expected that the best models would consistently outperform the naive model and perform as close as possible to the lower bound.
 
-\subsection*{Models accurately forecast evolution of simulated H3N2-like viruses}
+\subsection{Models accurately forecast evolution of simulated H3N2-like viruses}
 
 The long-term evolution of influenza H3N2 hemagglutinin has been previously described as a balance between positive selection for substitutions that enable escape from adaptive immunity by modifying existing epitopes and purifying selection on domains that are required to maintain the protein's primary functions of binding and membrane fusion \citep{Bush:1999vj,Neher2013,Luksza:2014hj,Koelle:2015dh}.
 To test the ability of our models to accurately detect these evolutionary patterns under controlled conditions, we simulated the long-term evolution of H3N2-like viruses under positive and purifying selection for 40 years (Methods, Figure~\ref{fig:cross_validation_for_simulated_populations}).
@@ -268,7 +268,7 @@ The naive model performed comparatively well on these test data with all its est
 These results confirmed that our approach of minimizing the distance between yearly populations could simultaneously capture clade-level dynamics of simulated influenza populations and identify individual strains that are most representative of future populations.
 However, they also supported the earlier finding that clade frequency forecasts may be inherently more challenging than identification of the closest strain to the future.
 
-\subsection*{Models reflect historical patterns of H3N2 evolution}
+\subsection{Models reflect historical patterns of H3N2 evolution}
 
 \begin{table}
   \begin{center}
@@ -493,7 +493,7 @@ Since the naive model predicts that the future will be identical to the present,
 With an average improvement over the vaccine strains of 2.19 AAs, the naive model performed consistently better than the LBI-based model and nearly as well as the HI-based model.
 These results were consistent with our earlier observations that the naive model often performs as well as biologically-informed models when estimating a single closest strain to the future.
 
-\subsection*{Historically-trained models enable real-time, actionable forecasts}
+\subsection{Historically-trained models enable real-time, actionable forecasts}
 
 To enable real-time forecasts, we integrated our forecasting framework into our existing open source pathogen surveillance application, Nextstrain \citep{Hadfield2018}.
 Prior to finalizing our model coefficients for use in Nextstrain, we tested whether our three best composite models could be improved by learning new coefficients per timepoint from the test data.
@@ -549,7 +549,7 @@ To aid with identification of potential vaccine candidates for the next season, 
   \end{center}
 \end{figure}
 
-\section*{Discussion}
+\section{Discussion}
 
 We have developed and rigorously tested a novel, open source framework for forecasting the long-term evolution of seasonal influenza H3N2 by estimating the sequence composition of future populations.
 A key innovation of this framework is its ability to directly compare viral populations between seasons using the earth mover's distance metric \citep{Rubner1998} and eliminate unavoidably stochastic clade definitions from phylogenies.
@@ -559,7 +559,7 @@ We demonstrated that the integration of these phenotypic metrics with previously
 Interestingly, we found that a naive model that predicts no change over the course of one year can often identify a single representative strain of the future despite its inability to accurately forecast clade frequencies.
 We have added this framework as a component of seasonal influenza analyses on \href{https://nextstrain.org/flu}{nextstrain.org} where it provides real-time forecasts for influenza researchers, decision makers, and the public.
 
-\subsection*{Integration of genotypic and phenotypic metrics minimizes overfitting}
+\subsection{Integration of genotypic and phenotypic metrics minimizes overfitting}
 
 Our evaluation of models by time-series cross-validation and true out-of-sample forecasts revealed substantial potential for model overfitting.
 We observed overfitting to both specific genetic backgrounds and general historical contexts.
@@ -594,7 +594,7 @@ These results are consistent with previous work that found improved performance 
 However, the effective elimination of LBI from our three-metric model during the validation period (Figure~\ref{fig:unadjusted_composite_model_accuracy_and_coefficients_for_natural_populations}) reveals the limitations of our current additive approach to composite models.
 The recent success of weighted ensembles for short-term influenza forecasting through the CDC's FluSight network \citep{Reich:2019bq} suggests that long-term forecasting may benefit from a similar approach.
 
-\subsection*{Forecasting framework aids practical forecasts}
+\subsection{Forecasting framework aids practical forecasts}
 
 By forecasting the composition of future H3N2 populations with biologically-informed fitness metrics, our best models consistently outperformed a naive model (Table~\ref{table_natural_model_selection}).
 While this performance confirms previously demonstrated potential for long-term influenza forecasting \citep{Luksza:2014hj}, the average gain from these models over the naive model appears low at 0.96 AAs per year for validation data and 0.85 AAs per year for test data.
@@ -621,7 +621,7 @@ Finally, forecasting models need to account for the geographic distribution of v
 Most influenza sequence data come from highly developed countries that account for a small fraction of the global population, while globally successful clades of influenza H3N2 often emerge in less well-sampled regions \citep{Russell:2008ke,Rambaut:2008ew,Bedford:2015fj}.
 Explicitly accounting for these sampling biases and the associated migration dynamics would allow models to weight forecasts based on both viral fitness and transmission.
 
-\subsection*{The nature of the predictive power of individual metrics remains unclear}
+\subsection{The nature of the predictive power of individual metrics remains unclear}
 
 Prediction of future influenza virus populations is intrinsically limited by the small number of data points available to train and test models.
 Increasingly more complex models are therefore prone to overfitting.
@@ -640,14 +640,14 @@ Our framework enables real-time practical forecasts of these populations by leve
 By releasing our framework as an open source tool based on modern data science standards like tidy data frames, we hope to encourage continued development of this tool by the influenza research community.
 We additionally anticipate that the ability to forecast the sequence composition of populations with earth mover's distance will enable future forecasting research with pathogens whose genomes cannot be analyzed by traditional phylogenetic methods including recombinant viruses, bacteria, and fungi.
 
-\subsection*{Model sharing and extensions}
+\subsection{Model sharing and extensions}
 
 The entire workflow for our analyses was implemented with Snakemake \citep{Snakemake}.
 We have provided all source code, configuration files, and datasets at \href{https://github.com/blab/flu-forecasting}{https://github.com/blab/flu-forecasting}.
 
-\section*{Materials and methods}
+\section{Materials and methods}
 
-\subsection*{Simulation of influenza H3N2-like populations}
+\subsection{Simulation of influenza H3N2-like populations}
 
 We simulated the long-term evolution of H3N2-like viruses with SANTA-SIM \citep{Jariani2019} for 10,000 generations or 50 years where 200 generations was equivalent to 1 year.
 We discarded the first 10 years as a burn-in period, selected the next 30 years for model fitting and validation, and held out the last 9 years as out-of-sample data for model testing (Figure~\ref{fig:cross_validation_for_simulated_populations}).
@@ -711,7 +711,7 @@ For tuning of hyperparameters, we sampled 10 viruses per month to enable rapid e
   \end{center}
 \end{table}
 
-\subsection*{Hyperparameter tuning with simulated populations}
+\subsection{Hyperparameter tuning with simulated populations}
 
 To avoid overfitting our models to the relatively limited data from natural populations, we used simulated H3N2-like populations to tune hyperparameters including the KDE bandwidth for frequency estimates and the L1 penalty for model coefficients.
 We simulated populations, as described above, and fit models for each parameter value using the true fitness of strains from the simulator.
@@ -724,12 +724,12 @@ Given this behavior, we found the bandwidth that produced the minimum difference
 Based on this analysis, we identified an optimal bandwidth of $\frac{2}{12}$ or the equivalent of 2-months for floating point dates.
 Next, we identified an L1 penalty of 0.1 for model coefficients that minimized the mean distance to the future for the true fitness model.
 
-\subsection*{Antigenic data}
+\subsection{Antigenic data}
 
 Hemagglutination inhibition (HI) and focus reduction assay (FRA) measurements were provided by WHO Global Influenza Surveillance and Response System (GISRS) Collaborating Centers in London, Melbourne, Atlanta and Tokyo.
 We converted these raw two-fold dilution measurements to $log_{2}$ titer drops normalized by the corresponding $log_{2}$ autologous measurements as previously described \citep{Neher:2016hy}.
 
-\subsection*{Strain selection for natural populations}
+\subsection{Strain selection for natural populations}
 
 Prior to our analyses, we downloaded all HA sequences and metadata from GISAID \citep{shu2017gisaid}.
 For model training and validation, we selected 15,583 HA sequences $\geq$900 nucleotides that were sampled between October 1, 1990 and October 1, 2015.
@@ -740,14 +740,14 @@ For model testing, we selected an additional 7,171 HA sequences corresponding to
 We used these test sequences to evaluate the out-of-sample error of fixed model parameters learned during training and validation.
 Supplemental File S1 describes contributing laboratories for all 22,754 validation and test strains.
 
-\subsection*{Phylogenetic inference}
+\subsection{Phylogenetic inference}
 
 For each timepoint in model training, validation, and testing, we selected the subsampled HA sequences with collection dates up to that timepoint.
 We aligned sequences with the augur align command \citep{Hadfield2018} and MAFFT v7.407 \citep{Katoh2002}.
 We inferred initial phylogenies for HA sequences at each timepoint with IQ-TREE v1.6.10 \citep{Nguyen2014}.
 To reconstruct time-resolved phylogenies, we applied TreeTime v0.5.6 \citep{Sagulenko2018} with the augur refine command.
 
-\subsection*{Frequency estimation}
+\subsection{Frequency estimation}
 
 To account for uncertainty in collection date and sampling error, we applied a kernel density estimation (KDE) approach to calculate global strain frequencies.
 Specifically, we constructed a Gaussian kernel for each strain with the mean at the reported collection date and a variance (or KDE bandwidth) of two months.
@@ -756,9 +756,9 @@ This bandwidth also roughly corresponds to the median lag time between strain co
 We estimated the frequency of each strain at each timepoint by calculating the probability density function of each KDE at that timepoint and normalizing the resulting values to sum to one.
 We implemented this frequency estimation logic in the augur frequencies command.
 
-\subsection*{Model fitting and evaluation}
+\subsection{Model fitting and evaluation}
 
-\subsubsection*{Fitness model}
+\subsubsection{Fitness model}
 
 We assumed that the evolution seasonal influenza H3N2 populations can be represented by a Malthusian growth fitness model, as previously described \citep{Luksza:2014hj}.
 Under this model, we estimated the future frequency, $\hat{x}_{i}(t + \Delta{t})$, of each strain $i$ from the strain's current frequency, $x_{i}(t)$, and fitness, $f_{i}(t)$, as follows where the resulting future frequencies were normalized to one by $\frac{1}{Z(t)}$.
@@ -776,7 +776,7 @@ For example, Equation~\ref{equation_fitness_estimation} estimates fitness per st
     \label{equation_fitness_estimation}
 \end{equation}
 
-\subsubsection*{Model target}
+\subsubsection{Model target}
 
 For a model based on any given combination of fitness metrics, we found the fitness coefficients that minimized the earth mover's distance (EMD) \citep{Rubner1998,Kusner2015} between amino acid sequences from the observed future population at time $u = t + \Delta{t}$ and the estimated future population created by projecting frequencies of strains at time $t$ by their estimated fitnesses.
 Solving for EMD identifies the minimum about of ``earth'' that must be moved from a source population to a sink population to make those populations as similar as possible.
@@ -792,7 +792,7 @@ However, the inevitable accumulation of substitutions between the two population
 We calculated EMD with the Python bindings for the OpenCV 3.4.1 implementation \citep{opencv_library}.
 We applied the Nelder-Mead minimization algorithm as implemented in SciPy \citep{virtanen_scipy_2020} to learn fitness coefficients that minimize the average of this distance metric over all timepoints in a given training window.
 
-\subsubsection*{Lower bound on earth mover's distance}
+\subsubsection{Lower bound on earth mover's distance}
 
 The minimum distance to the future between any two timepoints cannot be zero due to the accumulation of mutations between populations.
 We estimated the lower bound on earth mover's distance between timepoints using the following greedy solution to the optimal transport problem.
@@ -801,7 +801,7 @@ For each strain in the future timepoint $u$, we identified the closest strain in
 This approach allows each strain from timepoint $t$ to accumulate frequencies from multiple strains at timepoint $u$.
 We calculated the minimum distance between populations as the earth mover's distance between the resulting optimal frequencies for current strains, the observed frequencies of future strains, and the original distance matrix between those two populations.
 
-\subsubsection*{Strain-specific distance to the future}
+\subsubsection{Strain-specific distance to the future}
 
 We calculated the weighted Hamming distance to the future of each strain from the strain's HA amino acid sequence and the frequencies and sequences of the corresponding population one year in the future.
 Specifically, the distance between any strain $i$ from timepoint $t$ to the future timepoint $u$ was the Hamming distance, $h$, between strain $i$'s amino acid sequence, $s_{i}$, each future strain $j$'s amino acid sequence, $s_{j}$, and the frequency of strain $j$ in the future timepoint, $x_{j}(u)$.
@@ -818,7 +818,7 @@ We calculated the estimated distance to the future for live forecasts with the s
   \label{equation_estimated_weighted_distance_to_future}
 \end{equation}
 
-\subsubsection*{Time-series cross-validation}
+\subsubsection{Time-series cross-validation}
 
 To obtain unbiased estimates for the out-of-sample errors of our models, we adopted the standard cross-validation strategy of training, validation, and testing.
 We divided our available data into an initial training and validation set spanning October 1990 to October 2015 and an additional testing set spanning October 2015 to October 2019 (Figure~\ref{fig:cross_validation_for_natural_populations}).
@@ -841,7 +841,7 @@ Finally, we fixed the coefficients for each model at the mean values across all 
   \end{center}
 \end{figure}
 
-\subsubsection*{Model comparison by bootstrap tests}
+\subsubsection{Model comparison by bootstrap tests}
 
 We compared the performance of different pairs of models using bootstrap tests.
 For each timepoint, we calculated the difference between one model's earth mover's distance to the future and the other model's distance.
@@ -895,11 +895,11 @@ We also compared a subset of composite models to their respective individual mod
   \end{center}
 \end{table}
 
-\subsection*{Fitness metrics}
+\subsection{Fitness metrics}
 
 We defined the following fitness metrics per strain and timepoint.
 
-\subsubsection*{Antigenic drift}
+\subsubsection{Antigenic drift}
 
 We estimated antigenic drift for each strain using either genetic or HI data.
 To estimate antigenic drift with genetic data, we implemented an antigenic novelty metric based on the ``cross-immunity'' metric originally defined by \cite{Luksza:2014hj}.
@@ -930,7 +930,7 @@ Next, we calculated the pairwise antigenic distance between all current and past
 Finally, we calculated each strain's ability to escape cross-immunity using Equation~\ref{equation_epitope_cross_immunity} with the pairwise distances between epitope sequences replaced with pairwise antigenic distance from HI data.
 As with the original epitope antigenic novelty described above, this HI antigenic novelty metric produces higher values for strains that are more antigenically distinct from previously circulating strains.
 
-\subsubsection*{Functional constraint}
+\subsubsection{Functional constraint}
 
 We estimated functional constraint for each strain using either genetic or deep mutational scanning (DMS) data.
 To estimate functional constraint with genetic data, we implemented the non-epitope mutation metric originally defined by \cite{Luksza:2014hj}.
@@ -954,7 +954,7 @@ For the ``DMS mutational load'' metric, we defined a novel set of non-epitope si
 With this metric, we sought to identify more highly conserved sites without weighting any one site differently from others.
 We anticipated that this lack of site-specific weighting would make the DMS mutational load metric even less background-dependent than the DMS entropy and DMS mutational effect metrics.
 
-\subsubsection*{Clade growth}
+\subsubsection{Clade growth}
 
 We estimated clade growth for each strain using local branching index (LBI) and the change in frequency over time (delta frequency).
 To calculate LBI for each strain at each timepoint, we applied the LBI heuristic algorithm as originally described \citep{Neher:2014eu} to the phylogenetic tree constructed at each timepoint.
@@ -988,7 +988,7 @@ We calculated the delta frequency as the change in frequency for each strain bet
   }
 \end{table}
 
-\subsection*{Clustering of amino acid sequences for visualization}
+\subsection{Clustering of amino acid sequences for visualization}
 
 For the purpose of visualizing related amino acid sequences in Figure~\ref{fig:model}, we applied dimensionality reduction to pairwise amino acid distances followed by hierarchical clustering.
 Specifically, we selected a representative tree from our simulated population of viruses at month 10 of year 30.
@@ -997,6 +997,6 @@ We calculated the pairwise Hamming distance between the full-length HA amino aci
 We assigned each strain to a cluster based on its two-dimensional t-SNE embedding using DBSCAN \citep{Ester1996} with a maximum neighborhood distance of 10 AAs and a minimum of 20 strains per cluster.
 Despite known limitations of applying hierarchical clustering to manifold projections that do not preserve sample density, this approach allowed us to effectively assign strains to qualitative genetic clusters for the purposes of visualization.
 
-\section*{Supplemental Files}
+\section{Supplemental Files}
 
 \textbf{Supplemental File S1.} GISAID accessions and metadata including originating and submitting labs for natural strains used across all timepoints.
